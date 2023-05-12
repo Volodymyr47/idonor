@@ -1,0 +1,80 @@
+{% extends 'institution/base.html' %}
+{% load static %}
+{% block title %}Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
+
+<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"</h1>
+<h2>Центр управління</h2>
+<h3>Категорії донорських запитань</h3>
+
+{% if messages %}
+    {% for message in messages %}
+      <p>{{ message}}</p>
+    {% endfor %}
+{% endif %}
+
+<div class="new_category">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="category_name" size="40" placeholder="Нова категорія"></input>
+        <input type="submit" value="Додати">
+    </form>
+</div>
+<br><br>
+
+<div class="existing_categories">
+{% if categories %}
+  {% for category in categories %}
+    <input type="button" onclick="showDialog('dialog_{{category.id}}')" value="Редагувати">
+    <a href="/institution/category/{{category.id}}/delete">Видалити</a>
+    <span id="category-name">{{category.name}}</span><br>
+
+    <dialog class="edit_dialog" id="dialog_{{category.id}}">
+                <form action="/institution/category/{{category.id}}/edit/" method="post">
+                  {% csrf_token %}
+                  <input type="text" name="new_name" size="34" value="{{category.name}}">
+                    <br><br>
+                    <div>
+                      <input type="reset" onclick="closeDialog('dialog_{{category.id}}')" value="Відмінити" required>
+                      <input type="submit" value="Зберегти">
+                  </div>
+                </form>
+    </dialog>
+
+{% endfor %}
+{% endif %}
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if categories.has_previous %}
+            <a href="?page=1">&laquo;First</a>
+            <a href="?page={{ categories.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ categories.number }} of {{ categories.paginator.num_pages }}.
+        </span>
+
+        {% if categories.has_next %}
+            <a href="?page={{ categories.next_page_number }}"> Next </a>
+            <a href="?page={{ categories.paginator.num_pages }}"> Last&raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+
+<script>
+
+    function showDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.show();
+    }
+
+    function closeDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.close();
+    }
+
+</script>
+{% endblock %}

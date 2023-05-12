@@ -1,0 +1,98 @@
+{% extends 'institution/base.html' %}
+{% load static %}
+
+{% block title %}Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
+
+
+<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"</h1>
+<h2>Центр управління</h2>
+<h3>Перелік запитань для донора:</h3>
+
+{% if messages %}
+    {% for message in messages %}
+      <p>{{ message}}</p>
+    {% endfor %}
+{% endif %}
+
+<div class="new_questions">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if categories_list %}
+            <select name="category">
+                {% for item in categories_list %}
+                    <option value={{item.id}}>{{item.name}}</option>
+                {% endfor %}
+            </select><br><br>
+        {% endif %}
+        <input type="text" name="question" size="60" placeholder="Нове запитання">
+        <input type="submit" value="Додати">
+    </form>
+</div><br><br>
+
+{% if questions %}
+   {% for category in categories %}
+         <div class="question-category-name">
+                    {{category.name}}:
+         </div>
+        {% for question in questions %}
+            {% if question.category_id == category.id %}
+
+
+
+                <div class="existing-questions">
+                <input type="button" onclick="showDialog('dialog_{{question.id}}')" value="Редагувати">
+                <a href="/institution/question/{{question.id}}/delete">Видалити</a>
+                <span id="question-text"> - {{question.text}}</span><br><br>
+
+                <dialog class="edit_dialog" id="dialog_{{question.id}}">
+                            <form action="/institution/question/{{question.id}}/edit/" method="post">
+                              {% csrf_token %}
+                              <input type="text" name="text" size="34" value="{{question.text}}" required>
+                                <br><br>
+                                <div>
+                                  <input type="reset" onclick="closeDialog('dialog_{{question.id}}')" value="Відмінити">
+                                  <input type="submit" value="Зберегти">
+                              </div>
+                            </form>
+                </dialog>
+            {% endif %}
+            </div>
+        {% endfor %}<br>
+   {% endfor %}
+{% endif %}
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if categories.has_previous %}
+            <a href="?page=1">&laquo;First</a>
+            <a href="?page={{ categories.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ categories.number }} of {{ categories.paginator.num_pages }}.
+        </span>
+
+        {% if categories.has_next %}
+            <a href="?page={{ categories.next_page_number }}"> Next </a>
+            <a href="?page={{ categories.paginator.num_pages }}"> Last&raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+
+
+<script>
+    function showDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.show();
+    }
+
+    function closeDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.close();
+    }
+</script>
+
+{% endblock %}

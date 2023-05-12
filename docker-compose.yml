@@ -1,0 +1,22 @@
+services:
+  web:
+    env_file: .env
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8001"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWD}@postgres:5432/idonor_db
+    hostname: "web"
+    depends_on:
+      - postgres
+
+  postgres:
+    env_file: .env
+    image: "postgres"
+    environment:
+      POSTGRES_DB: "idonor_db"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWD}
+    ports:
+      - "5432:5432"
+    hostname: "postgres"

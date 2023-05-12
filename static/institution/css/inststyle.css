@@ -1,0 +1,40 @@
+.edit_dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+    background-color: #e8e3e3;
+    width: 300px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.question-category-name {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.existing-questions {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.pagination {
+  text-align: center;
+  display: inline-block;
+}
+
+.existing_categories {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#category-name{
+    padding-right: 10px;
+}
