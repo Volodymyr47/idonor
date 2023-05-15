@@ -1,6 +1,5 @@
 from datetime import datetime
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Status(models.Model):
@@ -16,6 +15,7 @@ class Institution(models.Model):
     full_name = models.CharField(max_length=250, null=False, default='InstitutionName')
     short_name = models.CharField(max_length=80, null=True)
     address = models.CharField(max_length=250, null=True)
+    corporate_phone = models.CharField(max_length=20, null=True)
     status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.CASCADE)
 
     def __str__(self):

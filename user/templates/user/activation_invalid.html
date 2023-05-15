@@ -1,0 +1,13 @@
+{% extends 'donor/base.html' %}
+{% load static %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block content %}
+{% if message %}
+    <h4>{{message}}</h4>
+{% endif %}
+
+{% endblock %}

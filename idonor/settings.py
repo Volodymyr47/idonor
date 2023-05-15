@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import config
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,10 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = config.SECRET_KEY
-# SECRET_KEY = env('SECRET_KEY')
 
-SECRET_KEY = 'django-insecure-&7w90ra&wj28_bbb-#3y9i2l0!!e9eo8m$gm$%iee8-i&1$=d('
+SECRET_KEY = config.SECRET_KEY
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -63,7 +62,7 @@ ROOT_URLCONF = 'idonor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,12 +84,12 @@ WSGI_APPLICATION = 'idonor.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "idonor_db",
-        "USER": "postgres",
-        "PASSWORD": "MySecretPassword",
-        "HOST": os.environ.get('postgres', 'localhost'),  # set in docker-compose.yml
-        "PORT": 5432,  # default postgres port
+        "ENGINE": config.POSTGRES_ENGINE,
+        "NAME": config.POSTGRES_DB,
+        "USER": config.POSTGRES_USER,
+        "PASSWORD": config.POSTGRES_PASSWD,
+        "HOST": os.environ.get('postgres', 'localhost'),
+        "PORT": config.POSTGRES_PORT,
     }
 }
 
@@ -98,20 +97,23 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
+AUTH_USER_MODEL = 'user.User'
+
+LOGIN_REDIRECT_URL = '/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -140,3 +142,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -1,18 +1,40 @@
 import logging
-from copy import copy
-
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .models import Question, Status, QuestionCategory
+from .models import Question, Status, QuestionCategory, Institution
 from django.core.paginator import Paginator
+from os import environ as env
 
 
 def main_page(request):
-    return render(request, 'institution/main.html')
+    inst_name = None
+    try:
+        inst_name = Institution.objects.filter(full_name__icontains='Сокаль'
+                                               ).values('full_name').first()
+    except Exception as err:
+        logging.error(f'Selecting all data at "main_page" error occurred\n{err}')
+        messages.error(request, 'Selecting all data at "main_page" error occurred')
+    return render(request, 'institution/main.html', {'inst_name': inst_name})
+
+
+def get_institution_info(request):
+    print('ENV = ', env.get('INSTITUTION_CITY'))
+    all_data = None
+    try:
+        all_data = Institution.objects.filter(full_name__icontains='Сокаль'
+                                              ).first()
+    except Exception as err:
+        logging.error(f'Selecting all data at "get_institution_info" error occurred\n{err}')
+        messages.error(request, 'Selecting all data at "get_institution_info" error occurred')
+    return render(request, 'institution/institution.html', {'all_data': all_data})
 
 
 def get_all_donors(request):
     return render(request, 'institution/donors.html')
+
+
+def edit_donor(request, donor_id):
+    pass
 
 
 def all_categories(request):
@@ -43,7 +65,7 @@ def edit_category(request, category_id):
             messages.error(request, f'Editing category at "edit_category with id {category_id}" error occurred')
             return redirect('all_categories')
         try:
-            edited_category= QuestionCategory.objects.filter(id=category_id).get()
+            edited_category = QuestionCategory.objects.filter(id=category_id).get()
             edited_category.name = new_name
             edited_category.save()
         except Exception as err:
@@ -59,7 +81,7 @@ def delete_category(request, category_id):
         edited_category.delete()
     except Exception as err:
 
-        messages.error(f'Deleting category at "delete_category with id {category_id}" error occurred')
+        messages.error(request, f'Deleting category at "delete_category with id {category_id}" error occurred')
         logging.error(f'Deleting category at "delete_category with id {category_id}" error occurred\n{err}')
         return redirect('all_categories')
     return redirect('all_categories', permanent=True)
@@ -82,6 +104,7 @@ def all_questions(request):
     categories = None
     questions = None
     categories_list = None
+
     try:
         questions = Question.objects.all().order_by('dlm')
         categories_id = []
@@ -124,7 +147,7 @@ def delete_question(request, question_id):
         edited_question.delete()
     except Exception as err:
         print('err = ', err)
-        messages.error(f'Deleting question at "delete_question with id {question_id}" error occurred')
+        messages.error(request, f'Deleting question at "delete_question with id {question_id}" error occurred')
         logging.error(f'Deleting question at "delete_question with id {question_id}" error occurred\n{err}')
         return redirect('all_questions')
     return redirect('all_questions', permanent=True)

@@ -1,9 +1,12 @@
-from environs import Env
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-env = Env()
-env.read_env()
-
-POSTGRES_USER = env.str('POSTGRES_USER')
-POSTGRES_PASSWD = env.str('POSTGRES_PASSWD')
-SECRET_KEY = env.str('SECRET_KEY')
+POSTGRES_ENGINE = os.getenv('POSTGRES_ENGINE')
+POSTGRES_DB = os.getenv('POSTGRES_DB')
+POSTGRES_USER = os.getenv('POSTGRES_USER')
+POSTGRES_PASSWD = os.getenv('POSTGRES_PASSWD')
+POSTGRES_PORT = os.getenv('POSTGRES_PORT')
+SECRET_KEY = os.getenv('SECRET_KEY')
+INSTITUTION_CITY = os.getenv('INSTITUTION_CITY')

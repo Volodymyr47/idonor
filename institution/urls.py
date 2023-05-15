@@ -3,6 +3,7 @@ from institution import views
 
 urlpatterns = [
     path('', views.main_page, name='main_page'),
+    path('info/', views.get_institution_info, name='get_institution_info'),
     path('donors/', views.get_all_donors, name='all_donors'),
     path('categories/', views.all_categories, name='all_categories'),
     path('category/<int:category_id>/edit/', views.edit_category, name='edit_category'),
