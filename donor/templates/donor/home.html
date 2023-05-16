@@ -5,6 +5,10 @@
 {% endblock %}
 {% block content %}
 
-<h1>Шановний {{user.first_name}}!</h1>
+{% if user.is_authenticated %}
+    <h1>Шановний {{user.first_name}}!</h1>
+{% else %}
+    <h1>Шановний Доноре!</h1>
+{% endif %}
 <h2>Вас вітає {{inst_name.full_name}}</h2>
 {% endblock %}

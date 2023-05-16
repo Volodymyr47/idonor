@@ -1,0 +1,59 @@
+{% extends 'donor/base.html' %}
+{% load static %}
+{% block title %}
+    Історія донорства
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/donor.css' %}">
+
+<h1>Історія донорства. Донор: {{user.username}}</h1>
+
+{% for event in history %}
+    <table id="main_table">
+        <tr id="tr_main">
+            <th>Дата</th>
+            <th>Здано, мл</th>
+            <th>Загальні показники стану здоров'я на момент процедури</th>
+        </tr>
+        <tr>
+            <td>{{event.donation_date}}</td>
+            <td>{{event.donated_volume}}</td>
+            <td>
+                <table id="second_table">
+                    <tr>
+                        <th>Артеріальний тиск</th>
+                        <th>Серцебиття</th>
+                        <th>Гемоглобін</th>
+                    </tr>
+                    <tr>
+                        <td>{{event.currenthealthparameter.blood_pressure}}</td>
+                        <td>{{event.currenthealthparameter.heart_rate}}</td>
+                        <td>{{event.currenthealthparameter.hemoglobin}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+{% endfor %}
+
+<div class="pagination justify-content-center">
+    <span class="step-links">
+        {% if history.has_previous %}
+            <a href="?page=1">&laquo;First</a>
+            <a href="?page={{ history.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ history.number }} of {{ history.paginator.num_pages }}.
+        </span>
+
+        {% if history.has_next %}
+            <a href="?page={{ history.next_page_number }}"> Next </a>
+            <a href="?page={{ history.paginator.num_pages }}"> Last&raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+
+
+{% endblock %}

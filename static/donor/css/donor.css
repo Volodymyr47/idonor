@@ -1,0 +1,12 @@
+
+table, th, td {
+  border: 1px solid grey;
+}
+#main_table {
+    width: 60%;
+}
+#second_table{
+width: 100%;
+}
+
+

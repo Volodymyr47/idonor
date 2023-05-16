@@ -22,13 +22,13 @@ class Status(models.Model):
 
 class Profile(models.Model):
     GENDER = (
-        ('male', 'Чоловіча'),
-        ('female', 'Жіноча')
+        ('Ч', 'Чоловіча'),
+        ('Ж', 'Жіноча')
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=17, blank=True)
     gender = models.CharField(max_length=6, choices=GENDER)
-    birth_date= models.DateField()
+    birth_date = models.DateField()
     home_addr = models.CharField(max_length=250, blank=True)
     work_addr = models.CharField(max_length=250, blank=True)
     dlm = models.DateTimeField(default=datetime.now)
@@ -58,7 +58,7 @@ class Answer(models.Model):
 
 
 class Test(models.Model):
-    donor = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     test_date = models.DateField()
     result = models.CharField(max_length=250)
     result_date = models.DateField()
@@ -69,25 +69,38 @@ class Test(models.Model):
 
 
 class History(models.Model):
-    donor_id = models.ForeignKey(User, on_delete=models.CASCADE)
-    donation_date = models.DateField()
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    donation_date = models.DateField(format('%d.%m.%Y'))
     donated_volume = models.IntegerField(null=True)
     comment = models.CharField(max_length=250)
     dlm = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
-        return f'{self.donor_id} donated {self.donated_volume} of blood in {self.donation_date}'
+        return f'{self.profile} donated {self.donated_volume} of blood in {self.donation_date}'
 
 
-class HealthParameter(models.Model):
+class BloodParameter(models.Model):
     Rh_FACTOR = [
         ('Rh+', 'Rh+'),
         ('Rh-', 'Rh-')
     ]
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
     blood_type = models.CharField(max_length=3, null=True)
-    rh_factor = models.CharField(max_length=3, choices=Rh_FACTOR, null=True)
-    blood_pressure = models.CharField(max_length=4, null=True)
-    heart_rate = models.CharField(max_length=9, null=True)
+    rh_factor = models.CharField(max_length=4, choices=Rh_FACTOR, null=True)
+    common_info = models.CharField(max_length=500, null=True)
+    dlm = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return f'{self.profile}, {self.blood_type}, {self.rh_factor}'
+
+
+class CurrentHealthParameter(models.Model):
+    history = models.OneToOneField(History, on_delete=models.CASCADE)
+    blood_pressure = models.CharField(max_length=9, null=True)
+    heart_rate = models.IntegerField(null=True)
     hemoglobin = models.IntegerField(null=True)
     common_info = models.CharField(max_length=500, null=True)
+    dlm = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return f'{self.history}, {self.blood_pressure}, {self.heart_rate}, {self.hemoglobin}'

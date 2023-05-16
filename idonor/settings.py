@@ -27,10 +27,10 @@ SECRET_KEY = config.SECRET_KEY
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config.DEBUG
 
-ALLOWED_HOSTS = ['testserver', 'postgres', '127.0.0.1']
-
+# ALLOWED_HOSTS = ['testserver', 'postgres', '127.0.0.1']
+ALLOWED_HOST = config.ALLOWED_HOST
 
 # Application definition
 
@@ -88,7 +88,7 @@ DATABASES = {
         "NAME": config.POSTGRES_DB,
         "USER": config.POSTGRES_USER,
         "PASSWORD": config.POSTGRES_PASSWD,
-        "HOST": os.environ.get('postgres', 'localhost'),
+        "HOST": os.environ.get(config.POSTGRES_HOST, 'localhost'),
         "PORT": config.POSTGRES_PORT,
     }
 }

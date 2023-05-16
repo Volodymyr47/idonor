@@ -31,8 +31,9 @@
 
     <label for="gender">Стать:</label><br>
     <select name="gender" id="gender">
-        <option value="male"> Чоловіча </option>
-        <option value="female"> Жіноча </option>
+        {% for gender in genders %}
+            <option value="{{gender}}">{{gender}}</option>
+        {% endfor %}
     </select><br><br>
 
     <label for="birthday">Дата народження:</label><br>

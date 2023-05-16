@@ -1,0 +1,30 @@
+{% extends 'donor/base.html' %}
+{% load static %}
+{% block title %}
+    Інформація про донора
+{% endblock %}
+
+{% block content %}
+<h1>Інформація про донора {{user.username}}</h1>
+
+<h3>Реєстраційні дані</h3>
+
+{% if profile_info %}
+    {% for data in profile_info %}
+        <div class="donor_info">
+            <span>П.І.Б.: {{data.user.username}}</span><br>
+            <span>Дата народження: {{data.birth_date}}</span><br>
+            <span>Домашня адреса: {{data.home_addr}}</span><br>
+            <span>Адреса місця праці: {{data.work_addr}}</span><br>
+            <span>Контактний тел.: {{data.phone}}</span><br>
+        </div>
+
+        <h3>Інформація про кров</h3>
+            <span>Група крові: {{data.bloodparameter.blood_type}}
+                {{data.bloodparameter.rh_factor}}</span><br>
+
+        <a href="{% url 'get_history' data.id %}"><h3>Історія донорства</h3></a>
+
+    {% endfor %}
+{% endif %}
+{% endblock %}
