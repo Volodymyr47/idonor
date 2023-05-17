@@ -2,21 +2,19 @@ import logging
 
 from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
-from django.template.loader import render_to_string
 from django.contrib.auth import logout, login, authenticate
-from django.utils.encoding import force_bytes, force_str
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_str
+from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.models import Group
 
 import config
 import constant as con
-from .utils import validate_field
+from .utils import validate_field, mail_text_generator
 from .tokens import account_activation_token
 from institution.models import Institution
-from donor.models import Profile, History, Test
+from donor.models import Profile
 
 User = get_user_model()
 
@@ -127,18 +125,10 @@ def register(request):
             work_addr=work_addr,
             inst_id=institution.id,
             user_id=new_user.id,
-            signup_confirmation=False
-        )
+            signup_confirmation=False)
+        profile.save()
 
-        current_site = get_current_site(request)
-        subject = con.MAIL_ACTIVATION_TITLE
-        message = render_to_string('user/activation_request.html', {
-            'user': new_user,
-            'domain': current_site.domain,
-            'uid': urlsafe_base64_encode(force_bytes(new_user.pk)),
-            'token': account_activation_token.make_token(new_user),
-        })
-        new_user.email_user(subject, message)
+        mail_text_generator(request, new_user, 'user/activation_request.html')
         return redirect('activation_sent')
 
     profile = Profile()
@@ -154,49 +144,7 @@ def user_logout(request):
     return render(request, 'user/logout.html')
 
 
-def get_user_info(request, user_id):
-    """
-    Show user data
-    """
-    user_info = None
-    try:
-        user_info = User.objects.filter(id=user_id).all()
-    except Exception as err:
-        logging.error(f'Function "Get_user_info" error: \n{err}')
-
-    return render(request, 'user/info.html', {'user_info': user_info})
-
-
-def password_sent(request):
-    return render(request, 'user/password-sent.html')
-
-
-def change_password(request, uidb64, token):
-
-    if request.method == 'POST':
-        password1 = request.POST.get('new_password1')
-        password2 = request.POST.get('new_password2')
-
-        if password1 != password2 or password2.startswith(';', 2):
-            messages.error(request, con.NEW_PASSWORD_ERROR)
-            return redirect('change_password', uidb64, token)
-
-        try:
-            uid = force_str(urlsafe_base64_decode(uidb64))
-            user = User.objects.filter(id=uid).first()
-            user.set_password(password2)
-            user.save()
-            return redirect('home')
-
-        except (TypeError, ValueError, OverflowError, TimeoutError) as err:
-            logging.error(f'Password changing error:\n{err}')
-            messages.error(request, 'Password changing error')
-            return redirect('make_login')
-    return render(request, 'user/password-change.html', {'uidb64':uidb64,
-                                                    'token': token})
-
-
-def recover_password(request):
+def prepare_password_recover(request):
     user = None
     if request.method == 'POST':
         email = request.POST.get('email_for_recover')
@@ -211,13 +159,44 @@ def recover_password(request):
             logging.error(f'Password recovering error:\n{err}')
             return redirect('make_login')
 
-    current_site = get_current_site(request)
-    subject = con.PASSWORD_RESET_MAIL
-    message = render_to_string('user/password-change-request.html', {
-        'user': user,
-        'domain': current_site.domain,
-        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-        'token': account_activation_token.make_token(user),
-    })
-    user.email_user(subject, message)
+    mail_text_generator(request, user, 'user/password-recover-request.html')
     return redirect('password_sent')
+
+
+def password_sent(request):
+    """
+    Shows info about sent mail to user to change the password
+    :param request:
+    :return: template
+    """
+    return render(request, 'user/password-sent.html')
+
+
+def recover_password(request, uidb64, token):
+    """
+    Change user password function
+    :param request: request
+    :param uidb64:
+    :param token:
+    :return:
+    """
+    if request.method == 'POST':
+        password1 = request.POST.get('new_password1')
+        password2 = request.POST.get('new_password2')
+
+        if password1 != password2 or password2.startswith(';', 2):
+            messages.error(request, con.NEW_PASSWORD_ERROR)
+            return redirect('recover_password', uidb64, token)
+
+        try:
+            uid = force_str(urlsafe_base64_decode(uidb64))
+            user = User.objects.filter(id=uid).first()
+            user.set_password(password2)
+            user.save()
+            return redirect('home')
+
+        except (TypeError, ValueError, OverflowError, TimeoutError) as err:
+            logging.error(f'Password changing error:\n{err}')
+            messages.error(request, 'Password recovering error')
+            return redirect('make_login')
+    return render(request, 'user/password-recover.html', {'uidb64': uidb64, 'token': token})

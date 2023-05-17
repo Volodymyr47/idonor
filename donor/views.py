@@ -24,40 +24,6 @@ def home(request):
     return render(request, 'donor/home.html', {'inst_name': inst_name})
 
 
-def take_test(request):
-    categories = None
-    questions = None
-    categories_list = None
-
-    try:
-        questions = Question.objects.all().order_by('dlm')
-        categories_id = []
-        for question in questions:
-            categories_id.append(question.category_id)
-        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('name')
-        categories_list = QuestionCategory.objects.all().order_by('name')
-    except Exception as err:
-        messages.error(request, 'Questions or Categories selection error')
-        logging.error(f'Questions or Categories selection error:\n{err}')
-
-    per_page = 4
-    paginator = Paginator(categories, per_page=per_page)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-
-    return render(request, 'institution/questions.html', {'questions': questions,
-                                                          'categories': page_obj,
-                                                          'categories_list': categories_list})
-
-
-def save_test_answer(request):
-    pass
-
-
-def get_result(request):
-    pass
-
-
 def donor_info(request, profile_id):
     profile_info = None
     try:
@@ -82,3 +48,34 @@ def get_history(request, profile_id):
     history_page = paginator.get_page(page_number)
 
     return render(request, 'donor/history.html', {'history': history_page})
+
+
+def take_test(request):
+    categories = None
+    questions = None
+
+    try:
+        questions = Question.objects.all().order_by('dlm')
+        categories_id = []
+        for question in questions:
+            categories_id.append(question.category_id)
+        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('name')
+    except Exception as err:
+        messages.error(request, 'Questions or Categories selection error')
+        logging.error(f'Questions or Categories selection error:\n{err}')
+
+    per_page = 4
+    paginator = Paginator(categories, per_page=per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'donor/test.html', {'questions': questions,
+                                               'categories': page_obj})
+
+
+def save_test_result(request):
+    pass
+
+
+def get_test_result(request):
+    pass

@@ -11,6 +11,7 @@ def main_page(request):
     try:
         inst_name = Institution.objects.filter(full_name__icontains='Сокаль'
                                                ).values('full_name').first()
+
     except Exception as err:
         logging.error(f'Selecting all data at "main_page" error occurred\n{err}')
         messages.error(request, 'Selecting all data at "main_page" error occurred')
@@ -110,8 +111,8 @@ def all_questions(request):
         categories_id = []
         for question in questions:
             categories_id.append(question.category_id)
-        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('name')
-        categories_list = QuestionCategory.objects.all().order_by('name')
+        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('id')
+        categories_list = QuestionCategory.objects.all().order_by('id')
     except Exception as err:
         messages.error(request, 'Questions or Categories selection error')
         logging.error(f'Questions or Categories selection error:\n{err}')
@@ -143,8 +144,8 @@ def edit_question(request, question_id):
 
 def delete_question(request, question_id):
     try:
-        edited_question = Question.objects.get(id=question_id)
-        edited_question.delete()
+        question = Question.objects.filter(id=question_id).first()
+        question.delete()
     except Exception as err:
         print('err = ', err)
         messages.error(request, f'Deleting question at "delete_question with id {question_id}" error occurred')

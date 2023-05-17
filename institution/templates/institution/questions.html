@@ -38,13 +38,11 @@
          </div>
         {% for question in questions %}
             {% if question.category_id == category.id %}
-
-
-
                 <div class="existing-questions">
                 <input type="button" onclick="showDialog('dialog_{{question.id}}')" value="Редагувати">
-                <a href="/institution/question/{{question.id}}/delete">Видалити</a>
-                <span id="question-text"> - {{question.text}}</span><br><br>
+<!--                <a href="/institution/question/{{question.id}}/delete">Видалити</a>-->
+                <a href="{% url 'delete_question' question.id %}">Видалити</a>
+                <span id="question-text"> - {{question.text}}</span><br>
 
                 <dialog class="edit_dialog" id="dialog_{{question.id}}">
                             <form action="/institution/question/{{question.id}}/edit/" method="post">
@@ -67,8 +65,8 @@
 <div class="pagination">
     <span class="step-links">
         {% if categories.has_previous %}
-            <a href="?page=1">&laquo;First</a>
-            <a href="?page={{ categories.previous_page_number }}">Previous</a>
+            <a href="?page=1">&laquo;Перша </a>
+            <a href="?page={{ categories.previous_page_number }}"> Попередня </a>
         {% endif %}
 
         <span class="current">
@@ -76,8 +74,8 @@
         </span>
 
         {% if categories.has_next %}
-            <a href="?page={{ categories.next_page_number }}"> Next </a>
-            <a href="?page={{ categories.paginator.num_pages }}"> Last&raquo;</a>
+            <a href="?page={{ categories.next_page_number }}"> Наступна </a>
+            <a href="?page={{ categories.paginator.num_pages }}"> Остання&raquo;</a>
         {% endif %}
     </span>
   </div>

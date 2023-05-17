@@ -101,7 +101,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{% url 'recover_password' %}">
+        <form method="post" action="{% url 'prepare_password_recover' %}">
           {% csrf_token %}
           <div class="form-outline">
             <label class="form-label" for="typeEmail">Введіть адресу електронної пошти:</label>
