@@ -6,6 +6,8 @@
 
 
 <h1 id="h1_text">Анкета донора {{ user.username }}</h1>
+<h3>{{instruction_title}}</h3>
+<h6>{{instruction_text}}</h6>
 
 <form method="post" action="{% url 'save_test_result' %}">
   {% csrf_token %}
@@ -17,39 +19,32 @@
         </tr>
           <table class="table table-hover table-sm">
               <thead>
-              <tr>
-                <th>Запитання</th>
-                <th>Відповіді</th>
-              </tr>
+                  <tr>
+                    <th>Запитання</th>
+                    <th>Відповіді</th>
+                  </tr>
               </thead>
               {% for question in questions %}
-                    {% if question.category_id == category.id %}
-              <tbody>
-                <tr>
-
-                        <td class="col-md-8">{{ question.text }}</td>
-
-                  <td>
-                      <div style="display: inline-block;">
-                    <fieldset>
-
-                        <input type="radio" name="yes_{{question.id}}" id="yes_{{question.id}}" value="Так"/>
-                        <label for="yes_{{question.id}}">Так</label>
-
-                        <input type="radio" name="no_{{question.id}}" id="no_{{question.id}}" value="Ні"/>
-                        <label for="no_{{question.id}}">Ні</label>
-                        <input type="text" name="comment_{{question.id}}" id="question_{{question.id}}"
-                               size="25" placeholder="Ваш коментар"/>
-                    </fieldset>
-
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-              {% endif %}
-                        {% endfor %}
+                {% if question.category_id == category.id %}
+                  <tbody>
+                    <tr>
+                      <td class="col-md-8">{{ question.text }}</td>
+                      <td>
+                       <div style="display: inline-block;">
+                        <fieldset>
+                          <input type="radio" name="answer_{{question.id}}" id="yes_{{question.id}}" value="Так"/>
+                          <label for="yes_{{question.id}}">Так</label>
+                          <input type="radio" name="answer_{{question.id}}" id="no_{{question.id}}" value="Ні"/>
+                          <label for="no_{{question.id}}">Ні</label>
+                          <input type="text" name="answer_text_{{question.id}}" placeholder="Ваш коментар" size="25"/>
+                        </fieldset>
+                       </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                {% endif %}
+              {% endfor %}
           </table>
-
     </table>
 
   {% endfor %}

@@ -47,9 +47,20 @@ def update_profile_signal(sender, instance, created, **kwargs):
         instance.profile.save()
 
 
-class Answer(models.Model):
-    question = models.ManyToManyField(Question)
-    donor = models.ManyToManyField(User)
+class Test(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    result = models.CharField(max_length=500, null=True)
+    result_date = models.DateField(null=True)
+    status = models.ForeignKey(Status, to_field='code', null=False, default=11, on_delete=models.CASCADE)
+    dlm = models.DateTimeField(default=datetime.now)
+
+    def __str__(self):
+        return self.result
+
+
+class TestDetail(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+    test = models.ForeignKey(Test, on_delete=models.CASCADE, null=True)
     answer = models.CharField(max_length=250)
     dlm = models.DateTimeField(default=datetime.now)
 
@@ -57,15 +68,7 @@ class Answer(models.Model):
         return self.answer
 
 
-class Test(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-    test_date = models.DateField()
-    result = models.CharField(max_length=250)
-    result_date = models.DateField()
-    dlm = models.DateTimeField(default=datetime.now)
 
-    def __str__(self):
-        return self.result
 
 
 class History(models.Model):

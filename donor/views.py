@@ -1,11 +1,14 @@
 import logging
 from django.contrib import messages
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth import get_user_model
-from .models import Profile, History, Test
+
 
 import config
+import constant as con
+from .donor_utils import sort_answer_in_dict
+from .models import Profile, History, Test, TestDetail
 from institution.models import Institution, Question, QuestionCategory
 
 User = get_user_model()
@@ -59,7 +62,7 @@ def take_test(request):
         categories_id = []
         for question in questions:
             categories_id.append(question.category_id)
-        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('name')
+        categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('id')
     except Exception as err:
         messages.error(request, 'Questions or Categories selection error')
         logging.error(f'Questions or Categories selection error:\n{err}')
@@ -70,11 +73,36 @@ def take_test(request):
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'donor/test.html', {'questions': questions,
-                                               'categories': page_obj})
+                                               'categories': page_obj,
+                                               'instruction_title': con.TEST_INSTRUCTION_TITLE,
+                                               'instruction_text': con.TEST_INSTRUCTION_TEXT})
 
 
 def save_test_result(request):
-    pass
+    """
+    Save donor test result and redirect to home-page
+    """
+    if request.method == 'POST':
+        user = request.user
+        pre_test_result = {key[7:]: value for key, value in request.POST.items() if key.startswith('answer')
+                           or key.startswith('answer_text')}
+
+        test_result = sort_answer_in_dict(pre_test_result, 5)
+
+        try:
+            test = Test.objects.create(profile_id=30)
+            test.save()
+            for key, value in test_result.items():
+                test_detail = TestDetail.objects.create(test_id=test.pk,
+                                                        question_id=int(key),
+                                                        answer=value)
+        except Exception as err:
+            logging.error(f'Test saving error:\n{err}')
+            messages.error('Помилка збереження результатів анкети')
+
+        print(test_result)
+
+    return redirect('take_test')
 
 
 def get_test_result(request):
