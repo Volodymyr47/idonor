@@ -26,7 +26,7 @@ class QuestionCategory(models.Model):
     name = models.CharField(max_length=50)
     status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.CASCADE)
     dlm = models.DateTimeField(default=datetime.today)
-    inst = models.ForeignKey(Institution, on_delete=models.CASCADE)
+    institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

@@ -1,6 +1,9 @@
 {% extends 'institution/base.html' %}
 {% load static %}
-{% block title %}Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"{% endblock %}
+{% block title %}
+    {{user.profile.institution.full_name}}
+{% endblock %}
+
 {% block content %}
 
 <h1>Повна інформація</h1>

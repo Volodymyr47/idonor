@@ -123,7 +123,7 @@ def register(request):
             birth_date=birthday,
             home_addr=home_addr,
             work_addr=work_addr,
-            inst_id=institution.id,
+            institution_id=institution.id,
             user_id=new_user.id,
             signup_confirmation=False)
         profile.save()
@@ -175,10 +175,6 @@ def password_sent(request):
 def recover_password(request, uidb64, token):
     """
     Change user password function
-    :param request: request
-    :param uidb64:
-    :param token:
-    :return:
     """
     if request.method == 'POST':
         password1 = request.POST.get('new_password1')

@@ -8,7 +8,7 @@ def sort_answer_in_dict(data, key_num):
             if not key.startswith('text'):
                 ordering_data.update({key: value})
             if key.startswith('text'):
-                ordering_data[key[key_num:]] = ordering_data.get(key[key_num:]) + '.  Коментар: ' + data.get(key)
+                ordering_data[key[key_num:]] = ordering_data.get(key[key_num:]) + '. ' + data.get(key)
     return ordering_data
 
 

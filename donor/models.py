@@ -27,13 +27,13 @@ class Profile(models.Model):
     )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=17, blank=True)
-    gender = models.CharField(max_length=6, choices=GENDER)
+    gender = models.CharField(max_length=15, choices=GENDER)
     birth_date = models.DateField()
     home_addr = models.CharField(max_length=250, blank=True)
     work_addr = models.CharField(max_length=250, blank=True)
     dlm = models.DateTimeField(default=datetime.now)
-    inst = models.ForeignKey(Institution, on_delete=models.CASCADE)
-    status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.CASCADE)
+    institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, to_field='code', null=False, default=1, on_delete=models.CASCADE)
     signup_confirmation = models.BooleanField(default=False)
 
     def __str__(self):
@@ -50,7 +50,7 @@ def update_profile_signal(sender, instance, created, **kwargs):
 class Test(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     result = models.CharField(max_length=500, null=True)
-    result_date = models.DateField(null=True)
+    test_date = models.DateField(default='1900-01-01',null=False)
     status = models.ForeignKey(Status, to_field='code', null=False, default=11, on_delete=models.CASCADE)
     dlm = models.DateTimeField(default=datetime.now)
 
@@ -66,9 +66,6 @@ class TestDetail(models.Model):
 
     def __str__(self):
         return self.answer
-
-
-
 
 
 class History(models.Model):

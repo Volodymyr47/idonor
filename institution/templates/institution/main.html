@@ -2,17 +2,18 @@
 {% load static %}
 
 {% block title %}
-        {{inst_name.full_name}}
+        {{user.profile.institution.full_name}}
 {% endblock %}
+
 {% block content %}
 
-{% if messages %}
-    {% for message in messages %}
-      <p>{{message}}</p>
-    {% endfor %}
-{% endif %}
+    {% if messages %}
+        {% for message in messages %}
+          <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
 
-<h1>{{inst_name.full_name}}</h1>
+<h1>{{user.profile.institution.short_name}}</h1>
 <h2>Центр управління</h2>
 
 <p><a href="{% url 'get_institution_info' %}">Інформація про центр</a></p>

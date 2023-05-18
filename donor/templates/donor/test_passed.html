@@ -1,0 +1,18 @@
+{% extends 'donor/base.html' %}
+{% load static %}
+{% block title %}
+    {{inst_name.full_name}}
+{% endblock %}
+{% block content %}
+
+{% if message %}
+    <h2>{{message}}</h2>
+{% else %}
+    <h2>Дякуємо Вам за пройдений тест. Очікуйте, будь ласка, результатів.
+        Спеціаліст служби крові зателефонує Вам протягом двох робочих днів.</h2>
+{% endif %}
+<br><br>
+
+<p><a href="{% url 'home' %}">Повернутися на головну</a></p>
+
+{% endblock %}

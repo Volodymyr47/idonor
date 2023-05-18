@@ -1,10 +1,20 @@
 {% extends 'institution/base.html' %}
 {% load static %}
-{% block title %}Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"{% endblock %}
+{% block title %}{{user.profile.institution.full_name}}{% endblock %}
 {% block content %}
-<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"</h1>
+<h1>{{user.profile.institution.short_name}}</h1>
 <h2>Центр управління</h2>
-<h3>Всі донори</h3>
+<h3>Перелік донорів</h3>
+
+{% if donors %}
+ {% for donor in donors %}
+    <a href="{% url 'specific_donor' donor.id %}">{{donor.user__username}}</a>
+
+    {% if donor.test__status == 11 %}
+        Новий тест
+    {% endif %}<br>
+ {% endfor %}
+{% endif %}
 
 
 {% endblock %}

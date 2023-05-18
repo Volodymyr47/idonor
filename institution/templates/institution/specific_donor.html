@@ -1,0 +1,66 @@
+{% extends 'institution/base.html' %}
+{% load static %}
+{% block title %}
+    {{user.profile.institution.full_name}}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
+
+<!--<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"!!!!!</h1>-->
+<h1>{{user.profile.institution.short_name}}</h1>
+<h2>Центр управління</h2>
+<h3>Інформація про донора</h3>
+
+{% if donor %}
+    <p>П.І.Б: {{donor.user.username}}</p>
+    <p>Стать: {{donor.gender}}</p>
+    <p>Дата народження: {{donor.birth_date}}</p>
+    <p>Домашня адреса: {{donor.home_addr}}</p>
+    <p>Адреса місця праці: {{donor.work_addr}}</p>
+    <p>Контактний телефон: {{donor.phone}}</p>
+    <p>Електронна пошта: {{donor.user.email}}</p>
+    <p><input type="button" onclick="showDialog('dialog_{{donor.status.id}}')" value="Редагувати">
+        Статус донора: {{donor.status.value}}</p>
+    <dialog class="status_edit_dialog" id="dialog_{{donor.status.id}}">
+                <form action="{% url 'edit_donor' donor.id %}" method="post">
+                  {% csrf_token %}
+                    <select name="new_status">
+                        {% for status in statuses %}
+                            <option value="{{status.id}}">{{status.value}}</option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+                    <div>
+                      <input type="reset" onclick="closeDialog('dialog_{{donor.status.id}}')" value="Відмінити" required>
+                      <input type="submit" value="Зберегти">
+                  </div>
+                </form>
+    </dialog>
+
+    <h3><a href="">Результати аналізів</a></h3>
+
+
+    <h3>Відповіді на анкету донора:</h3>
+    {% for test in tests %}
+       {{test.test_date}} <a href="{% url 'donor_test_result' donor.id test.test_date %}">Переглянути</a><br>
+    {% endfor %}
+
+{% endif %}
+
+
+<script>
+
+    function showDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.show();
+    }
+
+    function closeDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.close();
+    }
+
+</script>
+
+{% endblock %}

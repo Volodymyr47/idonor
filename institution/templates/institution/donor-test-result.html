@@ -1,0 +1,19 @@
+{% extends 'institution/base.html' %}
+{% load static %}
+{% block title %}
+    {{user.profile.institution.full_name}}
+{% endblock %}
+
+{% block content %}
+<h1>{{user.profile.institution.short_name}}</h1>
+<h2>Центр управління</h2>
+<h3>Результати донорського опитування від {{ test.test_date }}</h3>
+
+{% if test_details %}
+    {% for detail in test_details %}
+      {{detail.question.questioncategory}}
+      {{detail.question.text}}: <strong>{{ detail.answer }}</strong><br>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
