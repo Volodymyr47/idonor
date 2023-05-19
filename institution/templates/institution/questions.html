@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block title %}
-    {{user.profile.institution.full_name}}
+    Запитання
 {% endblock %}
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
 
 
 <!--<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"!!!</h1>-->
-<h1>{{user.profile.institution.short_name}}</h1>
+<h1>Запитання</h1>
 <h2>Центр управління</h2>
 
 <h5><a href="{% url 'main_page' %}">Перейти на головну</a></h5>

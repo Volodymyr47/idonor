@@ -88,8 +88,8 @@ DATABASES = {
         "NAME": config.POSTGRES_DB,
         "USER": config.POSTGRES_USER,
         "PASSWORD": config.POSTGRES_PASSWD,
-        "HOST": os.environ.get(config.POSTGRES_HOST, 'localhost'),
-        "PORT": config.POSTGRES_PORT,
+        "HOST": os.environ.get('postgres', 'localhost'),
+        "PORT": 5432,  # config.POSTGRES_PORT,
     }
 }
 

@@ -27,7 +27,8 @@ def main_page(request):
     :param request:
     :return:
     """
-    return render(request, 'institution/main.html')
+    institution = Institution.objects.filter(full_name__icontains=config.INSTITUTION_CITY).first()
+    return render(request, 'institution/main.html', {'institution': institution})
 
 
 @login_required(login_url='/user/login')
@@ -40,7 +41,7 @@ def get_institution_info(request):
     """
     all_data = None
     try:
-        all_data = Institution.objects.filter(full_name__icontains='Сокаль'
+        all_data = Institution.objects.filter(full_name__icontains=config.INSTITUTION_CITY
                                               ).first()
     except Exception as err:
         logging.error(f'Selecting all data at "get_institution_info" error occurred\n{err}')
@@ -124,7 +125,6 @@ def get_donor_test_result(request, donor_id, to_date):
 @login_required(login_url='/user/login')
 @specialist_required
 def donor_history(request, donor_id):
-
     if request.method == 'POST':
         create_history = None
 

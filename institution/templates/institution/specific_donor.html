@@ -1,14 +1,14 @@
 {% extends 'institution/base.html' %}
 {% load static %}
 {% block title %}
-    {{user.profile.institution.full_name}}
+    Донори
 {% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
 
-<h1>{{user.profile.institution.short_name}}</h1>
-<h2>Центр управління</h2>
+<h1>Центр управління: Донори</h1>
+
 <h5><a href="{% url 'all_donors' %}">Перейти до всіх донорів</a></h5>
 
 <h3>Інформація про донора</h3>

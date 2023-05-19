@@ -1,12 +1,14 @@
 {% extends 'institution/base.html' %}
 {% load static %}
 {% block title %}
-    {{user.profile.institution.full_name}}
+    Результати опитувань
 {% endblock %}
 
 {% block content %}
-<h1>{{user.profile.institution.short_name}}</h1>
-<h2>Центр управління</h2>
+
+
+<h1>Результати опитувань</h1>
+
 <h5><a href="{% url 'specific_donor' test.profile.id %}">Перейти у картку донора</a></h5>
 
 <h3>Результати донорського опитування від {{ test.test_date }}</h3>

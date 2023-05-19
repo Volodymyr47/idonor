@@ -24,7 +24,7 @@ class Institution(models.Model):
 
 class QuestionCategory(models.Model):
     name = models.CharField(max_length=50)
-    status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.PROTECT)
     dlm = models.DateTimeField(default=datetime.today)
     institution = models.ForeignKey(Institution, on_delete=models.CASCADE)
 
@@ -33,10 +33,10 @@ class QuestionCategory(models.Model):
 
 
 class Question(models.Model):
-    category = models.ForeignKey(QuestionCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(QuestionCategory, on_delete=models.PROTECT)
     text = models.CharField(max_length=400)
     dlm = models.DateTimeField(default=datetime.today)
-    status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.CASCADE)
+    status = models.ForeignKey(Status, to_field='code', null=False, default=2, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.text

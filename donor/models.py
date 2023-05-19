@@ -60,7 +60,7 @@ class Test(models.Model):
 
 class TestDetail(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
-    test = models.ForeignKey(Test, on_delete=models.CASCADE, null=True)
+    test = models.ForeignKey(Test, on_delete=models.PROTECT, null=True)
     answer = models.CharField(max_length=250)
     dlm = models.DateTimeField(default=datetime.now)
 
@@ -69,7 +69,7 @@ class TestDetail(models.Model):
 
 
 class History(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    profile = models.ForeignKey(Profile, on_delete=models.PROTECT, null=True)
     donation_date = models.DateField(format('%d.%m.%Y'))
     donated_volume = models.IntegerField(null=True)
     comment = models.CharField(max_length=250)
@@ -84,7 +84,7 @@ class BloodParameter(models.Model):
         ('Rh+', 'Rh+'),
         ('Rh-', 'Rh-')
     ]
-    profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    profile = models.OneToOneField(Profile, on_delete=models.PROTECT)
     blood_type = models.CharField(max_length=10, null=True)
     rh_factor = models.CharField(max_length=10, choices=Rh_FACTOR, null=True)
     common_info = models.CharField(max_length=200, null=True)
@@ -95,7 +95,7 @@ class BloodParameter(models.Model):
 
 
 class CurrentHealthParameter(models.Model):
-    history = models.OneToOneField(History, on_delete=models.CASCADE)
+    history = models.OneToOneField(History, on_delete=models.PROTECT)
     blood_pressure = models.CharField(max_length=9, null=True)
     heart_rate = models.IntegerField(null=True)
     hemoglobin = models.IntegerField(null=True)
