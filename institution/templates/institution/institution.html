@@ -7,6 +7,12 @@
 {% block content %}
 
 <h1>Повна інформація</h1>
+
+<h5><a href="{% url 'main_page' %}">Перейти на головну</a></h5>
+<h5><a href="{% url 'all_categories' %}">Перейти у категорії запитань</a></h5>
+<h5><a href="{% url 'all_questions' %}">Перейти у запитання для донорів</a></h5>
+<h5><a href="{% url 'all_donors' %}">Перейти до переліку донорів</a></h5>
+
 <div>
     <p>Повна назва: {{all_data.full_name}}</p>
     <p>Коротка назва: {{all_data.short_name}}</p>

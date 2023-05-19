@@ -6,7 +6,12 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <h1>Шановний {{user.first_name}}!</h1>
+   {% if user.profile.gender == 'Чоловічий' %}
+     <h1>Шановний {{user.first_name}}!</h1>
+   {% else %}
+     <h1>Шановна {{user.first_name}}!</h1>
+   {% endif %}
+
 {% else %}
     <h1>Шановний Доноре!</h1>
 {% endif %}

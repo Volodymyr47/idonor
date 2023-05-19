@@ -7,7 +7,11 @@
 {% block content %}
 <h1>{{user.profile.institution.short_name}}</h1>
 <h2>Центр управління</h2>
+<h5><a href="{% url 'specific_donor' test.profile.id %}">Перейти у картку донора</a></h5>
+
 <h3>Результати донорського опитування від {{ test.test_date }}</h3>
+
+
 
 {% if test_details %}
     {% for detail in test_details %}

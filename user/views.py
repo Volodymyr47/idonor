@@ -8,6 +8,7 @@ from django.contrib.auth import logout, login, authenticate
 from django.utils.encoding import force_str
 from django.utils.http import urlsafe_base64_decode
 from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
 
 import config
 import constant as con
@@ -38,12 +39,24 @@ def make_login(request):
                 login(request, usr)
         else:
             messages.error(request, "Invalid username or password")
+            return redirect('make_login', messages)
 
         next_page = request.POST.get('next')
         if next_page:
             return redirect(next_page)
 
-        return redirect('/')
+        try:
+            group = Group.objects.get(user=usr)
+            if group.name == 'donor':
+                return redirect('home')
+            if group.name == 'specialist':
+                return redirect('main_page')
+        except Exception as err:
+            messages.error(request, 'Помилка логування. Спробуйте ще раз')
+            logging.error(f'Function "make_login" error occurred:\n{err}')
+            return redirect('make_login')
+
+        # return redirect('home')
     return render(request, 'user/login.html', )
 
 
@@ -126,7 +139,6 @@ def register(request):
             institution_id=institution.id,
             user_id=new_user.id,
             signup_confirmation=False)
-        profile.save()
 
         mail_text_generator(request, new_user, 'user/activation_request.html')
         return redirect('activation_sent')
@@ -136,6 +148,7 @@ def register(request):
                                                                   profile.GENDER[1][1])})
 
 
+@login_required(login_url='/user/login')
 def user_logout(request):
     """
     User logout function

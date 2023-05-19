@@ -5,10 +5,11 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib.auth import get_user_model
-
+from django.contrib.auth.decorators import login_required
 
 import config
 import constant as con
+from user.utils import donor_required
 from .donor_utils import sort_answer_in_dict
 from .models import Profile, History, Test, TestDetail
 from institution.models import Institution, Question, QuestionCategory
@@ -16,6 +17,12 @@ from institution.models import Institution, Question, QuestionCategory
 User = get_user_model()
 
 
+def greeting(request):
+    return render(request, 'donor/greeting.html')
+
+
+@login_required(login_url='/user/login')
+@donor_required
 def home(request):
     institution = None
     try:
@@ -29,6 +36,8 @@ def home(request):
     return render(request, 'donor/home.html', {'institution': institution})
 
 
+@login_required(login_url='/user/login')
+@donor_required
 def donor_info(request, profile_id):
     profile_info = None
     try:
@@ -40,6 +49,8 @@ def donor_info(request, profile_id):
     return render(request, 'donor/donor-info.html', {'profile_info': profile_info})
 
 
+@login_required(login_url='/user/login/')
+@donor_required
 def get_history(request, profile_id):
     history = None
     try:
@@ -55,6 +66,8 @@ def get_history(request, profile_id):
     return render(request, 'donor/history.html', {'history': history_page})
 
 
+@login_required(login_url='/user/login')
+@donor_required
 def take_test(request):
     woman_categories = None
     man_categories = None
@@ -63,10 +76,10 @@ def take_test(request):
 
     try:
         test = Test.objects.filter(profile_id=user.profile.id,
-                                   test_date = datetime.date(datetime.today()))
+                                   test_date=datetime.date(datetime.today()))
         if test:
             message = f'Станом на сьогодні, {datetime.date(datetime.today())}, Ви вже пройшли тест.'
-            return render(request, 'donor/test_passed.html', {'message':message})
+            return render(request, 'donor/test_passed.html', {'message': message})
         questions = Question.objects.all().order_by('dlm')
         categories_id = []
         for question in questions:
@@ -74,7 +87,7 @@ def take_test(request):
 
         man_categories = QuestionCategory.objects.filter(id__in=categories_id
                                                          ).exclude(name='ДОДАТКОВО ДЛЯ ЖІНОК'
-                                                         ).order_by('id')
+                                                                   ).order_by('id')
 
         woman_categories = QuestionCategory.objects.filter(id__in=categories_id).order_by('id')
 
@@ -90,6 +103,8 @@ def take_test(request):
                                                'instruction_text': con.TEST_INSTRUCTION_TEXT})
 
 
+@login_required(login_url='/user/login')
+@donor_required
 def save_test_result(request):
     """
     Save donor test result and redirect to home-page
@@ -103,7 +118,7 @@ def save_test_result(request):
         test_result = sort_answer_in_dict(pre_test_result, 5)
 
         try:
-            test = Test.objects.create(profile_id=user.profile.id, test_date = datetime.now())
+            test = Test.objects.create(profile_id=user.profile.id, test_date=datetime.now())
             test.save()
             for key, value in test_result.items():
                 test_detail = TestDetail.objects.create(test_id=test.pk,
@@ -111,16 +126,14 @@ def save_test_result(request):
                                                         answer=value)
         except Exception as err:
             logging.error(f'Test saving error:\n{err}')
-            messages.error('Помилка збереження результатів анкети')
+            messages.error(request, 'Помилка збереження результатів анкети')
 
         print(test_result)
 
     return redirect('test_passed')
 
 
-def get_test_result(request, user_id):
-    pass
-
-
+@login_required(login_url='/user/login')
+@donor_required
 def test_passed(request):
-    return  render(request, 'donor/test_passed.html')
+    return render(request, 'donor/test_passed.html')

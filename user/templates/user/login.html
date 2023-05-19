@@ -60,37 +60,32 @@
 
             <!-- 2 column grid layout for inline styling -->
             <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Remember me </label>
-                </div>
-              </div>
-
+<!--              <div class="col d-flex justify-content-center">-->
+<!--                &lt;!&ndash; Checkbox &ndash;&gt;-->
+<!--                <div class="form-check">-->
+<!--                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />-->
+<!--                  <label class="form-check-label" for="form2Example31"> Remember me </label>-->
+<!--                </div>-->
+<!--              </div>-->
               <div class="col">
-                <!-- Simple link -->
-<!--                <a href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">Forgot password?</a>-->
+                <p>Ще не зареєстровані? <a href="{% url 'register' %}">Реєструйтесь</a></p>
+              </div>
+              <div class="col">
                 <button type="button" class="btn btn-primary"
                         data-toggle="modal" data-target="#exampleModalCenter">
-                Forgot password?</button>
+                Забули пароль?</button>
               </div>
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-
+            <button type="submit" class="btn btn-primary btn-block mb-4">Увійти</button>
           </form>
-
         </div>
       </div>
     </div>
   </div>
     </div>
 
-
-
-<!--Password recover modal  -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -109,45 +104,12 @@
 
           </div>
             <input type="submit" class="btn btn-primary w-50" value="Надісати">
-<!--            <button type="button" class="btn btn-secondary w-30" data-dismiss="modal">Відміна</button>-->
         </form>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-<!--<div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
-<!--     aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">-->
-<!--    <div class="modal-dialog" style="width: 300px;">-->
-<!--        <div class="modal-content text-center">-->
-<!--            <div class="modal-header h5 text-white bg-primary justify-content-center">-->
-<!--                Password Reset-->
-<!--            </div>-->
-<!--            <div class="modal-body px-5">-->
-<!--                <p class="py-2">-->
-<!--                    Enter your email address and we'll send you an email with instructions to reset your password.-->
-<!--                </p>-->
-<!--                <div class="form-outline">-->
-<!--                    <input type="email" id="typeEmail" class="form-control my-3" />-->
-<!--                    <label class="form-label" for="typeEmail">Email input</label>-->
-<!--                </div>-->
-<!--                <a href="#" class="btn btn-primary w-100">Reset password</a>-->
-<!--                <div class="d-flex justify-content-between mt-4">-->
-<!--                    <a class="" href="#">Login</a>-->
-<!--                    <a class="" href="#">Register</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 </section>
 
-<!-- Section: Design Block -->
 {% endblock %}

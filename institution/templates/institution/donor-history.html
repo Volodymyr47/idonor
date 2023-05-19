@@ -1,0 +1,151 @@
+{% extends 'institution/base.html' %}
+{% load static %}
+{% block title %}
+    {{user.profile.institution.full_name}}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
+
+<h1>{{user.profile.institution.short_name}}</h1>
+<h2>Центр управління</h2>
+<h5><a href="{% url 'specific_donor' donor_id %}">Перейти у картку донора</a></h5>
+<h3>Історія донора</h3>
+
+<form action="{% url 'donor_history' donor_id %}" method="post">
+    {% csrf_token %}
+
+    <label for="donation_date">Дата здачі: </label>
+    <input type="date" id="donation_date" name="donation_date"><br>
+
+    <label for="donated_volume">Об'єм, мл: </label>
+    <input type="number" id="donated_volume" name="donated_volume"><br>
+
+    <label for="comment">Коментар до візиту: </label><br>
+    <textarea name="comment" id="comment" cols="40" rows="2"></textarea><br>
+
+    <label for="blood_pressure">Артеріальний тиск: </label>
+    <input type="text" id="blood_pressure" name="blood_pressure"><br>
+
+    <label for="heart_rate">Частота серцебиття, уд/хв: </label>
+    <input type="number" id="heart_rate" name="heart_rate"><br>
+
+    <label for="hemoglobin">Гемоглобін: </label>
+    <input type="number" id="hemoglobin" name="hemoglobin"><br><br>
+
+    <label for="common_info">Зауваження щодо результатів аналізів:</label><br>
+    <textarea name="common_info" id="common_info" cols="50" rows="3" maxlength="249"></textarea><br>
+
+    <input type="submit" value="Відправити">
+</form>
+
+<br><br>
+{% if history %}
+    {% for item in history %}
+        <table id="main_table">
+            <tr id="tr_main">
+                <th>Дата</th>
+                <th>Здано, мл</th>
+                <th>Коментар до візиту</th>
+            </tr>
+            <tr>
+                <td>{{item.donation_date}}</td>
+                <td>{{item.donated_volume}}</td>
+                <td>{{item.comment}}</td>
+                <td>
+                    <table id="second_table">
+                        <tr>
+                            <th>Артеріальний тиск</th>
+                            <th>Серцебиття</th>
+                            <th>Гемоглобін</th>
+                            <th>Зауваження, рекомендації донору</th>
+                        </tr>
+                        <tr>
+                            <td>{{item.currenthealthparameter.blood_pressure}}</td>
+                            <td>{{item.currenthealthparameter.heart_rate}}</td>
+                            <td>{{item.currenthealthparameter.hemoglobin}}</td>
+                            <td>{{item.currenthealthparameter.common_info}}</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    <input type="button" onclick="showDialog('dialog_history_{{item.id}}')" value="Редагувати">
+    <dialog class="history_item_edit_dialog" id="dialog_history_{{item.id}}">
+        <form action="{% url 'edit_donor_history' donor_id item.id %}" method="post">
+          {% csrf_token %}
+                <label for="ed_donation_date">Дата здачі: </label>
+                <input type="date" id="ed_donation_date"
+                       name="ed_donation_date" value="{{item.donation_date|date:'Y-m-d'}}"
+                       min="2023-01-01"><br>
+
+                <label for="ed_donated_volume">Об'єм, мл: </label>
+                <input type="number" id="ed_donated_volume"
+                       name="ed_donated_volume" value="{{item.donated_volume}}"><br>
+
+                <label for="ed_comment">Коментар до візиту: </label><br>
+                <textarea name="ed_comment" id="ed_comment" cols="40" rows="2">{{item.comment}}</textarea><br>
+
+                <label for="ed_blood_pressure">Артеріальний тиск: </label>
+                <input type="text" id="ed_blood_pressure"
+                       name="ed_blood_pressure" value="{{item.currenthealthparameter.blood_pressure}}"><br>
+
+                <label for="ed_heart_rate">Частота серцебиття, уд/хв: </label>
+                <input type="number" id="ed_heart_rate"
+                       name="ed_heart_rate" value="{{item.currenthealthparameter.heart_rate}}"><br>
+
+                <label for="ed_hemoglobin">Гемоглобін: </label>
+                <input type="number" id="ed_hemoglobin"
+                       name="ed_hemoglobin" value="{{item.currenthealthparameter.hemoglobin}}"><br><br>
+
+                <label for="ed_common_info">Зауваження, рекомендації донору:</label><br>
+                <textarea name="ed_common_info"
+                          id="ed_common_info" cols="50" rows="3"
+                          maxlength="249">{{item.currenthealthparameter.common_info}}</textarea><br>
+            <br><br>
+            <div>
+              <input type="reset" onclick="closeDialog('dialog_history_{{item.id}}')" value="Відмінити" required>
+              <input type="submit" value="Зберегти">
+          </div>
+        </form>
+    </dialog>
+{% endfor %}
+<br><br>
+<div class="pagination">
+    <span class="step-links">
+        {% if history.has_previous %}
+            <a href="?page=1">&laquo;Перша </a>
+            <a href="?page={{ history.previous_page_number }}"> Попередня </a>
+        {% endif %}
+
+        <span class="current">
+            Сторінка {{ history.number }} із {{ history.paginator.num_pages }}.
+        </span>
+
+        {% if history.has_next %}
+            <a href="?page={{ history.next_page_number }}"> Наступна </a>
+            <a href="?page={{ history.paginator.num_pages }}"> Остання&raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+
+{% else %}
+<h4>Станом на поточний момент дані історії відсутні</h4>
+{% endif %}
+
+
+<script>
+
+    function showDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.show();
+    }
+
+    function closeDialog(docID) {
+      var dialog = document.getElementById(docID);
+      dialog.close();
+    }
+
+</script>
+
+{% endblock %}

@@ -7,14 +7,75 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/inststyle.css' %}">
 
-<!--<h1>Сокальський підрозділ КРП ЛОР "Львівський обласний центр служби крові"!!!!!</h1>-->
 <h1>{{user.profile.institution.short_name}}</h1>
 <h2>Центр управління</h2>
+<h5><a href="{% url 'all_donors' %}">Перейти до всіх донорів</a></h5>
+
 <h3>Інформація про донора</h3>
 
 {% if donor %}
     <p>П.І.Б: {{donor.user.username}}</p>
     <p>Стать: {{donor.gender}}</p>
+    <p><u>Параметри крові</u>:</p>
+    {% if donor.bloodparameter %}
+        <ul>
+            <li>Група: {{donor.bloodparameter.blood_type}}</li>
+            <li>Резус-фактор: {{donor.bloodparameter.rh_factor}}</li>
+            {% if donor.bloodparameter.common_info %}
+                <li>Додатково: {{donor.bloodparameter.common_info}}</li>
+            {% endif %}
+        </ul>
+    {% else %}
+
+    <input type="button" onclick="showDialog('dialog_add_bp_{{donor.id}}')" value="Додати">
+        <dialog class="add_blood_params" id="dialog_add_bp_{{donor.id}}">
+        <form action="{% url 'add_blood_params' donor.id %}" method="post">
+          {% csrf_token %}
+            <input type="text" name="blood_type" value="{{donor.bloodparameter.blood_type}}"
+                   size="10" placeholder="Група крові">
+            <select name="rh_factor">
+                {% for resus in resuses %}
+                    <option value="{{resus.0}}">{{resus.1}}</option>
+                {% endfor %}
+            </select>
+            <input type="text" name="common_info" value="{{donor.bloodparameter.common_info}}"
+                   size="40" placeholder="Інформація">
+            <br><br>
+            <div>
+              <input type="reset" onclick="closeDialog('dialog_add_bp_{{donor.id}}')" value="Відмінити" required>
+              <input type="submit" value="Зберегти">
+          </div>
+        </form>
+    </dialog>
+    {% endif %}
+
+    <input type="button" onclick="showDialog('dialog_edit_bp_{{donor.id}}')" value="Редагувати">
+    <dialog class="edit_blood_params" id="dialog_edit_bp_{{donor.id}}">
+        <form action="{% url 'edit_blood_params' donor.id %}" method="post">
+          {% csrf_token %}
+            <input type="text" name="blood_type" value="{{donor.bloodparameter.blood_type}}"
+                   size="10" placeholder="Група крові">
+            <select name="rh_factor">
+                {% for resus in resuses %}
+                    {% if donor.bloodparameter.rh_factor %}
+                        <option value="{{donor.bloodparameter.rh_factor}}"
+                                selected hidden>{{donor.bloodparameter.rh_factor}}</option>
+                    {% endif %}
+                        <option value="{{resus.0}}">{{resus.1}}</option>
+                {% endfor %}
+
+            </select>
+            <input type="text" name="common_info" value="{{donor.bloodparameter.common_info}}"
+                   size="40" placeholder="Інформація">
+            <br><br>
+            <div>
+              <input type="reset" onclick="closeDialog('dialog_edit_bp_{{donor.id}}')" value="Відмінити" required>
+              <input type="submit" value="Зберегти">
+          </div>
+        </form>
+    </dialog>
+
+
     <p>Дата народження: {{donor.birth_date}}</p>
     <p>Домашня адреса: {{donor.home_addr}}</p>
     <p>Адреса місця праці: {{donor.work_addr}}</p>
@@ -23,27 +84,26 @@
     <p><input type="button" onclick="showDialog('dialog_{{donor.status.id}}')" value="Редагувати">
         Статус донора: {{donor.status.value}}</p>
     <dialog class="status_edit_dialog" id="dialog_{{donor.status.id}}">
-                <form action="{% url 'edit_donor' donor.id %}" method="post">
-                  {% csrf_token %}
-                    <select name="new_status">
-                        {% for status in statuses %}
-                            <option value="{{status.id}}">{{status.value}}</option>
-                        {% endfor %}
-                    </select>
-                    <br><br>
-                    <div>
-                      <input type="reset" onclick="closeDialog('dialog_{{donor.status.id}}')" value="Відмінити" required>
-                      <input type="submit" value="Зберегти">
-                  </div>
-                </form>
+        <form action="{% url 'change_donor_status' donor.id %}" method="post">
+          {% csrf_token %}
+            <select name="new_status">
+                {% for status in statuses %}
+                    <option value="{{status.code}}">{{status.value}}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+            <div>
+              <input type="reset" onclick="closeDialog('dialog_{{donor.status.id}}')" value="Відмінити" required>
+              <input type="submit" value="Зберегти">
+          </div>
+        </form>
     </dialog>
 
-    <h3><a href="">Результати аналізів</a></h3>
-
+    <h3><a href="{% url 'donor_history' donor.id %}">Історія донора</a></h3>
 
     <h3>Відповіді на анкету донора:</h3>
     {% for test in tests %}
-       {{test.test_date}} <a href="{% url 'donor_test_result' donor.id test.test_date %}">Переглянути</a><br>
+       {{test.test_date}} <a href="{% url 'donor_test_result' donor.id test.test_date %}"> Переглянути </a><br>
     {% endfor %}
 
 {% endif %}

@@ -85,9 +85,9 @@ class BloodParameter(models.Model):
         ('Rh-', 'Rh-')
     ]
     profile = models.OneToOneField(Profile, on_delete=models.CASCADE)
-    blood_type = models.CharField(max_length=3, null=True)
-    rh_factor = models.CharField(max_length=4, choices=Rh_FACTOR, null=True)
-    common_info = models.CharField(max_length=500, null=True)
+    blood_type = models.CharField(max_length=10, null=True)
+    rh_factor = models.CharField(max_length=10, choices=Rh_FACTOR, null=True)
+    common_info = models.CharField(max_length=200, null=True)
     dlm = models.DateTimeField(default=datetime.now)
 
     def __str__(self):

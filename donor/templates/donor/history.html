@@ -14,22 +14,25 @@
             <tr id="tr_main">
                 <th>Дата</th>
                 <th>Здано, мл</th>
-                <th>Загальні показники стану здоров'я на момент процедури</th>
+                <th>Коментар до візиту</th>
             </tr>
             <tr>
                 <td>{{event.donation_date}}</td>
                 <td>{{event.donated_volume}}</td>
+                <td>{{event.comment}}</td>
                 <td>
                     <table id="second_table">
                         <tr>
                             <th>Артеріальний тиск</th>
                             <th>Серцебиття</th>
                             <th>Гемоглобін</th>
+                            <th>Зауваження, рекомендації донору</th>
                         </tr>
                         <tr>
                             <td>{{event.currenthealthparameter.blood_pressure}}</td>
                             <td>{{event.currenthealthparameter.heart_rate}}</td>
                             <td>{{event.currenthealthparameter.hemoglobin}}</td>
+                            <td>{{event.currenthealthparameter.common_info}}</td>
                         </tr>
                     </table>
                 </td>

@@ -30,7 +30,7 @@ SECRET_KEY = config.SECRET_KEY
 DEBUG = config.DEBUG
 
 # ALLOWED_HOSTS = ['testserver', 'postgres', '127.0.0.1']
-ALLOWED_HOST = config.ALLOWED_HOST
+ALLOWED_HOSTS = ['testserver', 'postgres', '127.0.0.1']
 
 # Application definition
 
@@ -118,7 +118,7 @@ LOGIN_REDIRECT_URL = '/'
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'uk-ua'
 
 TIME_ZONE = 'Europe/Kiev'
 

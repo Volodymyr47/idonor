@@ -4,7 +4,6 @@ import os
 load_dotenv()
 
 DEBUG = os.getenv('DEBUG')
-ALLOWED_HOST = os.getenv('ALLOWED_HOST')
 
 POSTGRES_ENGINE = os.getenv('POSTGRES_ENGINE')
 POSTGRES_DB = os.getenv('POSTGRES_DB')

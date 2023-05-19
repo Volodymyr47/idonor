@@ -4,6 +4,10 @@
 {% block content %}
 <h1>{{user.profile.institution.short_name}}</h1>
 <h2>Центр управління</h2>
+<h5><a href="{% url 'main_page' %}">Перейти на головну</a></h5>
+<h5><a href="{% url 'all_categories' %}">Перейти у категорії запитань</a></h5>
+<h5><a href="{% url 'all_questions' %}">Перейти у запитання для донорів</a></h5>
+
 <h3>Перелік донорів</h3>
 
 {% if donors %}

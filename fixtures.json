@@ -27,21 +27,13 @@
     "model": "contenttypes.contenttype",
     "pk": 4,
     "fields": {
-        "app_label": "auth",
-        "model": "user"
-    }
-},
-{
-    "model": "contenttypes.contenttype",
-    "pk": 5,
-    "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
     }
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 6,
+    "pk": 5,
     "fields": {
         "app_label": "sessions",
         "model": "session"
@@ -49,15 +41,15 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 7,
+    "pk": 6,
     "fields": {
-        "app_label": "donor",
-        "model": "institution"
+        "app_label": "user",
+        "model": "user"
     }
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 8,
+    "pk": 7,
     "fields": {
         "app_label": "donor",
         "model": "status"
@@ -65,10 +57,18 @@
 },
 {
     "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "donor",
+        "model": "answer"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
     "pk": 9,
     "fields": {
         "app_label": "donor",
-        "model": "question"
+        "model": "profile"
     }
 },
 {
@@ -76,7 +76,7 @@
     "pk": 10,
     "fields": {
         "app_label": "donor",
-        "model": "test"
+        "model": "healthparameter"
     }
 },
 {
@@ -84,7 +84,7 @@
     "pk": 11,
     "fields": {
         "app_label": "donor",
-        "model": "profile"
+        "model": "test"
     }
 },
 {
@@ -99,158 +99,1328 @@
     "model": "contenttypes.contenttype",
     "pk": 13,
     "fields": {
-        "app_label": "donor",
-        "model": "answer"
+        "app_label": "institution",
+        "model": "questioncategory"
     }
 },
 {
     "model": "contenttypes.contenttype",
     "pk": 14,
     "fields": {
+        "app_label": "institution",
+        "model": "question"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "institution",
+        "model": "status"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "institution",
+        "model": "institution"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
         "app_label": "donor",
-        "model": "questioncategory"
+        "model": "bloodparameter"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "donor",
+        "model": "currenthealthparameter"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+        "app_label": "donor",
+        "model": "testdetail"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "g5k30srjbd9c8tw7kfmghrm0nv2h5o87",
+    "pk": "6mk16341gkyc048k8y7yrgw1nsus4xsf",
     "fields": {
-        "session_data": "MzFmMTNjNzZlMmU1NWVhM2YyMDI1YzIwNzg3YjU0OTk3MTU4ZWVlNTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MWFjZmZhYzZmNmFkNmFiMmE5OTljZjAyZDQxYjZjNTUzMjFjNWI3In0=",
-        "expire_date": "2023-05-25T13:00:49.924"
+        "session_data": "MWQ1YjZkMWM1OWQ3ZTA3NDE2Y2ZlMTdkZWZmNmFiODk1OGFmNTRkMzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI4YjhkYWRlZTU0NzYzMGUwMzMxYmNhZTZjMWI3ZmJkNDEyMjJiOWU2In0=",
+        "expire_date": "2023-05-29T12:26:21.831"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "a286iez1t1gjuzx85leversp25xvdvak",
+    "fields": {
+        "session_data": "e30:1q02Kh:wCIRnraf7eUHnjD3P6XY35W_ig1xIpgZvg51QkBaj_4",
+        "expire_date": "2023-06-02T18:47:55.363"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "k85srndiuy0gfnz1lu25rmnwudxy5ss8",
+    "fields": {
+        "session_data": "e30:1q02U7:ZPb6YByKbfw9Mbm-G529S7heMIXCdCdEropSzNe9EjY",
+        "expire_date": "2023-06-02T18:57:39.741"
     }
 },
 {
     "model": "donor.status",
     "pk": 1,
     "fields": {
-        "code": 0,
-        "value": "\u041f\u043b\u0430\u043d\u0443\u0454\u0442\u044c\u0441\u044f",
-        "dlm": "2023-05-09T21:10:13"
+        "code": 1,
+        "value": "\u041d\u043e\u0432\u0438\u0439",
+        "dlm": "2023-05-15T10:41:34"
     }
 },
 {
     "model": "donor.status",
     "pk": 2,
     "fields": {
-        "code": 1,
-        "value": "\u041d\u043e\u0432\u0438\u0439",
-        "dlm": "2023-05-09T21:10:13"
+        "code": 2,
+        "value": "\u0410\u043a\u0442\u0438\u0432\u043d\u0438\u0439",
+        "dlm": "2023-05-15T10:41:34"
     }
 },
 {
     "model": "donor.status",
     "pk": 3,
     "fields": {
-        "code": 2,
-        "value": "\u0410\u043a\u0442\u0438\u0432\u043d\u0438\u0439",
-        "dlm": "2023-05-09T21:10:13"
+        "code": 3,
+        "value": "\u0410\u043d\u0430\u043b\u0456\u0437",
+        "dlm": "2023-05-15T10:41:34"
     }
 },
 {
     "model": "donor.status",
     "pk": 4,
     "fields": {
-        "code": 9,
+        "code": 4,
         "value": "\u041d\u0435\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439",
-        "dlm": "2023-05-09T21:10:13"
+        "dlm": "2023-05-15T10:41:34"
     }
 },
 {
     "model": "donor.status",
     "pk": 5,
     "fields": {
-        "code": 3,
-        "value": "\u0417\u0430\u0443\u0432\u0430\u0436\u0435\u043d\u043d\u044f",
-        "dlm": "2023-05-09T21:10:13"
+        "code": 11,
+        "value": "\u041d\u0435\u043f\u0440\u043e\u0447\u0438\u0442\u0430\u043d\u043e",
+        "dlm": "2023-05-15T10:41:34"
     }
 },
 {
-    "model": "donor.institution",
+    "model": "donor.status",
+    "pk": 6,
+    "fields": {
+        "code": 12,
+        "value": "\u041f\u0440\u043e\u0447\u0438\u0442\u0430\u043d\u043e",
+        "dlm": "2023-05-15T10:41:34"
+    }
+},
+{
+    "model": "donor.status",
+    "pk": 7,
+    "fields": {
+        "code": 9,
+        "value": "\u041d\u0435\u043f\u0440\u0438\u0434\u0430\u0442\u043d\u0438\u0439",
+        "dlm": "2023-05-15T10:41:34"
+    }
+},
+{
+    "model": "donor.test",
     "pk": 1,
     "fields": {
-        "full_name": "\u041a\u041d\u041f \u041b\u041e\u0420 \"\u041b\u044c\u0432\u0456\u0432\u0441\u044c\u043a\u0438\u0439 \u043e\u0431\u043b\u0430\u0441\u043d\u0438\u0439 \u0446\u0435\u043d\u0442\u0440 \u0441\u043b\u0443\u0436\u0431\u0438 \u043a\u0440\u043e\u0432\u0456\" \u0421\u043e\u043a\u0430\u043b\u044c\u0441\u044c\u043a\u0438\u0439 \u043f\u0456\u0434\u0440\u043e\u0437\u0434\u0456\u043b",
-        "short_name": "\u041a\u041d\u041f \u041b\u041e\u0420 \u0421\u043e\u043a\u0430\u043b\u044c",
-        "address": "\u0410\u0434\u0440\u0435\u0441\u0430 \u043f\u0456\u0434\u0440\u043e\u0437\u0434\u0456\u043b\u0443",
-        "status": 2
+        "profile": 30,
+        "result": null,
+        "test_date": "1900-01-01",
+        "status": 12,
+        "dlm": "2023-05-17T22:18:33.958"
     }
 },
 {
-    "model": "donor.questioncategory",
+    "model": "donor.test",
     "pk": 2,
     "fields": {
-        "name": "\u0417\u0430\u0433\u0430\u043b\u044c\u043d\u0438\u0439 \u0441\u0442\u0430\u043d \u0437\u0434\u043e\u0440\u043e\u0432'\u044f",
-        "status": 2,
-        "dlm": "2023-05-10T15:06:48.342",
-        "inst": 1
+        "profile": 30,
+        "result": null,
+        "test_date": "2023-05-18",
+        "status": 12,
+        "dlm": "2023-05-18T10:27:11.901"
     }
 },
 {
-    "model": "donor.questioncategory",
-    "pk": 3,
-    "fields": {
-        "name": "\u041f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u044c\u043e\u0433\u043e \u0440\u043e\u043a\u0443",
-        "status": 2,
-        "dlm": "2023-05-10T15:08:57.527",
-        "inst": 1
-    }
-},
-{
-    "model": "donor.questioncategory",
-    "pk": 6,
-    "fields": {
-        "name": "\u041f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 6-\u0442\u0438 \u043c\u0456\u0441\u044f\u0446\u0456\u0432",
-        "status": 2,
-        "dlm": "2023-05-10T17:30:30.348",
-        "inst": 1
-    }
-},
-{
-    "model": "donor.questioncategory",
-    "pk": 7,
-    "fields": {
-        "name": "\u041f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 2-\u0445 \u0442\u0438\u0436\u043d\u0456\u0432",
-        "status": 2,
-        "dlm": "2023-05-10T22:03:19.802",
-        "inst": 1
-    }
-},
-{
-    "model": "donor.question",
-    "pk": 1,
-    "fields": {
-        "category": 2,
-        "text": "\u0412\u0438 \u0434\u043e\u0431\u0440\u0435 \u043f\u043e\u0447\u0443\u0432\u0430\u0454\u0442\u0435\u0441\u044c?",
-        "dlm": "2023-05-10T15:26:10.525",
-        "status": 2
-    }
-},
-{
-    "model": "donor.question",
+    "model": "donor.test",
     "pk": 4,
     "fields": {
-        "category": 2,
-        "text": "\u0427\u0438 \u0454 \u0443 \u0412\u0430\u0441 \u0442\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430, \u0431\u043e\u043b\u0456 \u0443 \u0433\u043e\u0440\u043b\u0456, \u043f\u0440\u043e\u0441\u0442\u0443\u0434\u0430, \u0440\u0435\u0441\u043f\u0456\u0440\u0430\u0442\u043e\u0440\u043d\u0456 \u0437\u0430\u0445\u0432\u043e\u0440\u044e\u0432\u0430\u043d\u043d\u044f, \u0430\u043d\u0433\u0456\u043d\u0430?",
-        "dlm": "2023-05-10T17:29:57.808",
-        "status": 2
+        "profile": 32,
+        "result": null,
+        "test_date": "2023-05-18",
+        "status": 12,
+        "dlm": "2023-05-18T11:02:19.210"
     }
 },
 {
-    "model": "donor.question",
+    "model": "donor.test",
+    "pk": 5,
+    "fields": {
+        "profile": 33,
+        "result": null,
+        "test_date": "2023-05-17",
+        "status": 12,
+        "dlm": "2023-05-18T19:05:21.159"
+    }
+},
+{
+    "model": "donor.test",
     "pk": 6,
     "fields": {
-        "category": 7,
-        "text": "\u0427\u0438 \u0440\u043e\u0431\u0438\u043b\u0438 \u0412\u0430\u043c \u0456\u043d'\u0454\u043a\u0446\u0456\u0457 \u043b\u0456\u043a\u0456\u0432?",
-        "dlm": "2023-05-11T11:34:01.853",
+        "profile": 34,
+        "result": null,
+        "test_date": "2023-05-19",
+        "status": 12,
+        "dlm": "2023-05-19T17:45:16.380"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 1,
+    "fields": {
+        "question": 3,
+        "test": 1,
+        "answer": "\u0422\u0430\u043a.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440: Vse good",
+        "dlm": "2023-05-17T22:18:34.058"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 2,
+    "fields": {
+        "question": 4,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.062"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 3,
+    "fields": {
+        "question": 5,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.066"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 4,
+    "fields": {
+        "question": 6,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.069"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 5,
+    "fields": {
+        "question": 7,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.072"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 6,
+    "fields": {
+        "question": 8,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.075"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 7,
+    "fields": {
+        "question": 9,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.078"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 8,
+    "fields": {
+        "question": 10,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.083"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 9,
+    "fields": {
+        "question": 11,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.086"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 10,
+    "fields": {
+        "question": 12,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.088"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 11,
+    "fields": {
+        "question": 13,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.091"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 12,
+    "fields": {
+        "question": 14,
+        "test": 1,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-17T22:18:34.094"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 13,
+    "fields": {
+        "question": 15,
+        "test": 1,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-17T22:18:34.098"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 14,
+    "fields": {
+        "question": 3,
+        "test": 2,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-18T10:27:12.088"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 15,
+    "fields": {
+        "question": 4,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.096"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 16,
+    "fields": {
+        "question": 5,
+        "test": 2,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-18T10:27:12.100"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 17,
+    "fields": {
+        "question": 6,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.104"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 18,
+    "fields": {
+        "question": 7,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.108"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 19,
+    "fields": {
+        "question": 8,
+        "test": 2,
+        "answer": "\u0422\u0430\u043a.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440:  \u0410\u0441\u043f\u0456\u0440\u0438\u043d",
+        "dlm": "2023-05-18T10:27:12.112"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 20,
+    "fields": {
+        "question": 9,
+        "test": 2,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-18T10:27:12.117"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 21,
+    "fields": {
+        "question": 10,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.120"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 22,
+    "fields": {
+        "question": 11,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.124"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 23,
+    "fields": {
+        "question": 12,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.126"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 24,
+    "fields": {
+        "question": 13,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.129"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 25,
+    "fields": {
+        "question": 14,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.133"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 26,
+    "fields": {
+        "question": 15,
+        "test": 2,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T10:27:12.137"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 41,
+    "fields": {
+        "question": 4,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.306"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 42,
+    "fields": {
+        "question": 5,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.310"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 43,
+    "fields": {
+        "question": 6,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.313"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 44,
+    "fields": {
+        "question": 7,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.316"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 45,
+    "fields": {
+        "question": 8,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.320"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 46,
+    "fields": {
+        "question": 9,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.323"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 47,
+    "fields": {
+        "question": 10,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.327"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 48,
+    "fields": {
+        "question": 11,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.332"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 49,
+    "fields": {
+        "question": 12,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.336"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 50,
+    "fields": {
+        "question": 13,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.340"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 51,
+    "fields": {
+        "question": 14,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.344"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 52,
+    "fields": {
+        "question": 15,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.348"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 53,
+    "fields": {
+        "question": 16,
+        "test": 4,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T11:02:19.351"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 54,
+    "fields": {
+        "question": 3,
+        "test": 5,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-18T19:05:21.277"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 55,
+    "fields": {
+        "question": 4,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.281"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 56,
+    "fields": {
+        "question": 5,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.284"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 57,
+    "fields": {
+        "question": 6,
+        "test": 5,
+        "answer": "\u0422\u0430\u043a.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440: \u041a\u043e\u043d\u044f\u0447\u0435\u043a",
+        "dlm": "2023-05-18T19:05:21.287"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 58,
+    "fields": {
+        "question": 7,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.290"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 59,
+    "fields": {
+        "question": 8,
+        "test": 5,
+        "answer": "\u0422\u0430\u043a.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440: \u041a\u043b\u0456\u0437\u044c\u043c\u0430",
+        "dlm": "2023-05-18T19:05:21.293"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 60,
+    "fields": {
+        "question": 9,
+        "test": 5,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-18T19:05:21.297"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 61,
+    "fields": {
+        "question": 10,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.300"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 62,
+    "fields": {
+        "question": 11,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.304"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 63,
+    "fields": {
+        "question": 12,
+        "test": 5,
+        "answer": "\u041d\u0456.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440: \u0422\u0456\u043b\u044c\u043a\u0438, \u043a\u043b\u0456\u0437\u044c\u043c\u0443",
+        "dlm": "2023-05-18T19:05:21.308"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 64,
+    "fields": {
+        "question": 13,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.312"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 65,
+    "fields": {
+        "question": 14,
+        "test": 5,
+        "answer": "\u0422\u0430\u043a.  \u041a\u043e\u043c\u0435\u043d\u0442\u0430\u0440: \u0422\u0456\u043b\u044c\u043a\u0438 \u0432\u043e\u0434\u0438\u0447\u043a\u0443 \u0437\u0456 \u0441\u0456\u043b\u043b\u044e",
+        "dlm": "2023-05-18T19:05:21.315"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 66,
+    "fields": {
+        "question": 15,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.317"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 67,
+    "fields": {
+        "question": 16,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.320"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 68,
+    "fields": {
+        "question": 17,
+        "test": 5,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-18T19:05:21.323"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 70,
+    "fields": {
+        "question": 3,
+        "test": 6,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-19T17:45:16.495"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 71,
+    "fields": {
+        "question": 4,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.500"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 72,
+    "fields": {
+        "question": 5,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.505"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 73,
+    "fields": {
+        "question": 6,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.508"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 74,
+    "fields": {
+        "question": 7,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.511"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 75,
+    "fields": {
+        "question": 8,
+        "test": 6,
+        "answer": "\u0422\u0430\u043a. \u0410\u0441\u043f\u0456\u0440\u0438\u043d",
+        "dlm": "2023-05-19T17:45:16.514"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 76,
+    "fields": {
+        "question": 9,
+        "test": 6,
+        "answer": "\u0422\u0430\u043a",
+        "dlm": "2023-05-19T17:45:16.518"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 77,
+    "fields": {
+        "question": 10,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.522"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 78,
+    "fields": {
+        "question": 11,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.526"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 79,
+    "fields": {
+        "question": 12,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.529"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 80,
+    "fields": {
+        "question": 13,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.533"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 81,
+    "fields": {
+        "question": 14,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.537"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 82,
+    "fields": {
+        "question": 15,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.541"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 83,
+    "fields": {
+        "question": 16,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.544"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 84,
+    "fields": {
+        "question": 17,
+        "test": 6,
+        "answer": "\u041d\u0456",
+        "dlm": "2023-05-19T17:45:16.547"
+    }
+},
+{
+    "model": "donor.testdetail",
+    "pk": 85,
+    "fields": {
+        "question": 25,
+        "test": 6,
+        "answer": "\u0422\u0430\u043a. 02.05.2023",
+        "dlm": "2023-05-19T17:45:16.551"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 2,
+    "fields": {
+        "profile": 30,
+        "donation_date": "2023-01-15",
+        "donated_volume": 350,
+        "comment": "\u0411\u0435\u0437 \u043a\u043e\u043c\u0435\u043d\u0442\u0430\u0440\u0456\u0432",
+        "dlm": "2023-05-15T13:41:34"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 3,
+    "fields": {
+        "profile": 30,
+        "donation_date": "2023-04-15",
+        "donated_volume": 450,
+        "comment": "\u0411\u0435\u0437 \u043a\u043e\u043c\u0435\u043d\u0442\u0430\u0440\u0456\u0432",
+        "dlm": "2023-05-15T13:41:34"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 4,
+    "fields": {
+        "profile": 33,
+        "donation_date": "2023-05-18",
+        "donated_volume": 450,
+        "comment": "",
+        "dlm": "2023-05-19T14:54:30.826"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 5,
+    "fields": {
+        "profile": 33,
+        "donation_date": "2023-05-17",
+        "donated_volume": 450,
+        "comment": "",
+        "dlm": "2023-05-19T14:58:23.509"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 6,
+    "fields": {
+        "profile": 33,
+        "donation_date": "2023-05-16",
+        "donated_volume": 350,
+        "comment": "",
+        "dlm": "2023-05-19T16:29:38.111"
+    }
+},
+{
+    "model": "donor.history",
+    "pk": 7,
+    "fields": {
+        "profile": 34,
+        "donation_date": "2023-05-19",
+        "donated_volume": 350,
+        "comment": "\u0412\u0456\u0437\u0438\u0442 \u043f\u0440\u043e\u0439\u0448\u043e\u0432 \u0443\u0441\u043f\u0456\u0448\u043d\u043e",
+        "dlm": "2023-05-19T19:25:53.056"
+    }
+},
+{
+    "model": "donor.bloodparameter",
+    "pk": 1,
+    "fields": {
+        "profile": 30,
+        "blood_type": "\u0406",
+        "rh_factor": "Rh-",
+        "common_info": null,
+        "dlm": "2023-05-15T13:41:34"
+    }
+},
+{
+    "model": "donor.bloodparameter",
+    "pk": 9,
+    "fields": {
+        "profile": 32,
+        "blood_type": "O(II)",
+        "rh_factor": "Rh-",
+        "common_info": "\u041a\u0440\u043e\u0432 \u043f\u0440\u043e\u0441\u0442\u043e \u0447\u0443\u0434\u043e\u0432\u0430 \u0434\u043b\u044f \u043a\u0440\u043e\u0432\u044f\u043d\u043a\u0438",
+        "dlm": "2023-05-19T11:50:40.207"
+    }
+},
+{
+    "model": "donor.bloodparameter",
+    "pk": 11,
+    "fields": {
+        "profile": 33,
+        "blood_type": "O(I)",
+        "rh_factor": "Rh+",
+        "common_info": "\u041f\u0440\u043e\u0442\u0438\u043f\u043e\u043a\u0430\u0437\u0430\u043d\u044c \u043d\u0435\u043c\u0430\u0454",
+        "dlm": "2023-05-19T11:52:30.048"
+    }
+},
+{
+    "model": "donor.bloodparameter",
+    "pk": 12,
+    "fields": {
+        "profile": 34,
+        "blood_type": "O(I)",
+        "rh_factor": "Rh+",
+        "common_info": "\u0431\u0435\u0437 \u0441\u0443\u0442\u0442\u0454\u0432\u0438\u0445 \u0437\u0430\u0443\u0432\u0430\u0436\u0435\u043d\u044c",
+        "dlm": "2023-05-19T19:20:23.373"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 2,
+    "fields": {
+        "history": 2,
+        "blood_pressure": "120/80",
+        "heart_rate": 70,
+        "hemoglobin": 100,
+        "common_info": "\u0412\u0441\u0435 \u0447\u0443\u0434\u043e\u0432\u043e",
+        "dlm": "2023-05-15T13:41:34"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 7,
+    "fields": {
+        "history": 3,
+        "blood_pressure": "120/90",
+        "heart_rate": 65,
+        "hemoglobin": 110,
+        "common_info": "\u0412\u0441\u0435 \u0447\u0443\u0434\u043e\u0432\u043e",
+        "dlm": "2023-05-15T13:41:34"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 8,
+    "fields": {
+        "history": 4,
+        "blood_pressure": "120/85",
+        "heart_rate": 75,
+        "hemoglobin": 120,
+        "common_info": "\u0417\u0434\u043e\u0440\u043e\u0432\u0438\u0439 \u044f\u043a \u0431\u0438\u043a",
+        "dlm": "2023-05-19T14:54:30.960"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 9,
+    "fields": {
+        "history": 5,
+        "blood_pressure": "120/90",
+        "heart_rate": 65,
+        "hemoglobin": 110,
+        "common_info": "",
+        "dlm": "2023-05-19T14:58:23.561"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 10,
+    "fields": {
+        "history": 6,
+        "blood_pressure": "110/70",
+        "heart_rate": 60,
+        "hemoglobin": 100,
+        "common_info": "\u041f\u043e\u043d\u0438\u0436\u0435\u043d\u0438\u0439 \u0430\u0440\u0442\u0435\u0440\u0456\u0430\u043b\u044c\u043d\u0438\u0439 \u0442\u0438\u0441\u043a",
+        "dlm": "2023-05-19T16:29:38.214"
+    }
+},
+{
+    "model": "donor.currenthealthparameter",
+    "pk": 11,
+    "fields": {
+        "history": 7,
+        "blood_pressure": "120/80",
+        "heart_rate": 70,
+        "hemoglobin": 110,
+        "common_info": "\u041d\u0430\u0440\u0430\u0437\u0456 \u0434\u043b\u044f \u0437\u0430\u0431\u0435\u0437\u043f\u0435\u0447\u0435\u043d\u043d\u044f \u043f\u043e\u0442\u0440\u0435\u0431 \u043f\u0430\u0446\u0456\u0454\u043d\u0442\u0456\u0432 \u043d\u0435\u043e\u0431\u0445\u0456\u0434\u043d\u043e 2 \u043c\u043b\u043d \u0440\u0435\u0433\u0443\u043b\u044f\u0440\u043d\u0438\u0445 \u0434\u043e\u043d\u043e\u0440\u0456\u0432. \u041d\u0430 1000 \u043d\u0430\u0441\u0435\u043b\u0435\u043d\u043d\u044f \u043f\u043e\u0442\u0440\u0456\u0431\u043d\u043e 31,5 \u0434\u043e\u043d\u0430\u0446\u0456\u0439, \u0430\u043b\u0435 \u0432 \u0440\u0435\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0456 \u0437\u0434\u0430\u044e\u0442\u044c \u0430\u043a\u0442\u0438\u0432\u043d\u043e \u043a\u0440\u043e\u0432 \u0456 \u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u0438 \u043a\u0440\u043e\u0432\u0456 \u0442\u0456\u043b\u044c\u043a\u0438 12 \u043b\u044e\u0434\u0435\u0439 \u0456\u0437 \u0432\u0456\u0434\u043f\u043e\u0432\u0456\u0434\u043d\u043e\u0457 \u043a\u0456\u043b\u044c\u043a\u043e\u0441\u0442\u0456. \u041a\u0440\u043e\u0432 \u0442\u0440\u0435\u0431\u0430 \u043f\u043e\u0441\u0442\u0456\u0439\u043d\u043e. \u041e\u0434\u0438\u043d \u0434\u043e\u043d\u043e\u0440 \u0437",
+        "dlm": "2023-05-19T19:25:53.162"
+    }
+},
+{
+    "model": "institution.status",
+    "pk": 1,
+    "fields": {
+        "code": 2,
+        "value": "\u0410\u043a\u0442\u0438\u0432\u043d\u0438\u0439",
+        "dlm": "2023-05-15T00:44:33"
+    }
+},
+{
+    "model": "institution.status",
+    "pk": 2,
+    "fields": {
+        "code": 9,
+        "value": "\u041d\u0435\u0430\u043a\u0442\u0438\u0432\u043d\u0438\u0439",
+        "dlm": "2023-05-15T00:44:33"
+    }
+},
+{
+    "model": "institution.institution",
+    "pk": 1,
+    "fields": {
+        "full_name": "\u0421\u043e\u043a\u0430\u043b\u044c\u0441\u044c\u043a\u0438\u0439 \u043f\u0456\u0434\u0440\u043e\u0437\u0434\u0456\u043b \u041a\u041d\u041f \u041b\u041e\u0420 \"\u041b\u044c\u0432\u0456\u0432\u0441\u044c\u043a\u0438\u0439 \u043e\u0431\u043b\u0430\u0441\u043d\u0438\u0439 \u0446\u0435\u043d\u0442\u0440 \u0441\u043b\u0443\u0436\u0431\u0438 \u043a\u0440\u043e\u0432\u0456\" ",
+        "short_name": "\u041a\u041d\u041f \u041b\u041e\u0420 \u0421\u043e\u043a\u0430\u043b\u044c\u0441\u044c\u043a\u0438\u0439 \u043f\u0456\u0434\u0440\u043e\u0437\u0434\u0456\u043b",
+        "address": "80000, \u043c. \u0421\u043e\u043a\u0430\u043b\u044c, \u0432\u0443\u043b. \u042f. \u041c\u0443\u0434\u0440\u043e\u0433\u043e, 28.",
+        "corporate_phone": "7-25-70",
         "status": 2
     }
 },
 {
-    "model": "donor.question",
+    "model": "institution.questioncategory",
+    "pk": 1,
+    "fields": {
+        "name": "\u0417\u0410\u0413\u0410\u041b\u042c\u041d\u0418\u0419 \u0421\u0422\u0410\u041d \u0417\u0414\u041e\u0420\u041e\u0412'\u042f",
+        "status": 2,
+        "dlm": "2023-05-17T11:10:29.734",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.questioncategory",
+    "pk": 2,
+    "fields": {
+        "name": "\u041f\u0420\u041e\u0422\u042f\u0413\u041e\u041c \u041e\u0421\u0422\u0410\u041d\u041d\u042c\u041e\u0413\u041e \u0420\u041e\u041a\u0423",
+        "status": 2,
+        "dlm": "2023-05-17T11:10:43.183",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.questioncategory",
+    "pk": 3,
+    "fields": {
+        "name": "\u041f\u0420\u041e\u0422\u042f\u0413\u041e\u041c \u041e\u0421\u0422\u0410\u041d\u041d\u0406\u0425 6-\u0422\u0418 \u041c\u0406\u0421\u042f\u0426\u0406\u0412",
+        "status": 2,
+        "dlm": "2023-05-17T11:10:55.171",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.questioncategory",
+    "pk": 4,
+    "fields": {
+        "name": "\u041f\u0420\u041e\u0422\u042f\u0413\u041e\u041c \u041e\u0421\u0422\u0410\u041d\u041d\u0406\u0425 2-\u0425 \u0422\u0418\u0416\u041d\u0406\u0412",
+        "status": 2,
+        "dlm": "2023-05-17T11:11:15.251",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.questioncategory",
+    "pk": 5,
+    "fields": {
+        "name": "\u0427\u0418 \u0421\u041f\u041e\u0421\u0422\u0415\u0420\u0406\u0413\u0410\u0404\u0422\u042c\u0421\u042f \u0423 \u0412\u0410\u0421",
+        "status": 2,
+        "dlm": "2023-05-17T11:11:28.501",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.questioncategory",
+    "pk": 6,
+    "fields": {
+        "name": "\u0414\u041e\u0414\u0410\u0422\u041a\u041e\u0412\u041e \u0414\u041b\u042f \u0416\u0406\u041d\u041e\u041a",
+        "status": 2,
+        "dlm": "2023-05-17T11:11:42.396",
+        "institution": 1
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 3,
+    "fields": {
+        "category": 1,
+        "text": "\u042f\u043a \u0441\u0435\u0431\u0435 \u043f\u043e\u0447\u0443\u0432\u0430\u0454\u0442\u0435? \u0414\u043e\u0431\u0440\u0435?",
+        "dlm": "2023-05-17T11:38:08.185",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 4,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u0454 \u0443 \u0412\u0430\u0441 \u0442\u0435\u043c\u043f\u0435\u0440\u0430\u0442\u0443\u0440\u0430, \u0431\u043e\u043b\u0456 \u0443 \u0433\u043e\u0440\u043b\u0456, \u043f\u0440\u043e\u0441\u0442\u0443\u0434\u0430, \u0440\u0435\u0441\u043f\u0456\u0440\u0430\u0442\u043e\u0440\u043d\u0456 \u0437\u0430\u0445\u0432\u043e\u0440\u044e\u0432\u0430\u043d\u043d\u044f, \u0430\u043d\u0433\u0456\u043d\u0430?",
+        "dlm": "2023-05-17T11:39:06.499",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 5,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u0432\u0436\u0438\u0432\u0430\u043b\u0438 \u0412\u0438 \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 4-\u0445 \u0433\u043e\u0434\u0438\u043d \u0457\u0436\u0443?",
+        "dlm": "2023-05-17T11:39:38.195",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 6,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u0432\u0436\u0438\u0432\u0430\u043b\u0438 \u0412\u0438 \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 48-\u043c\u0438 \u0433\u043e\u0434\u0438\u043d \u0430\u043b\u043a\u043e\u0433\u043e\u043b\u044c?",
+        "dlm": "2023-05-17T11:39:59.719",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
     "pk": 7,
     "fields": {
-        "category": 3,
+        "category": 1,
+        "text": "\u0427\u0438 \u0432\u0438\u0434\u0430\u043b\u044f\u043b\u0438 \u0412\u0430\u043c \u0437\u0443\u0431 \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 10-\u0442\u0438 \u0434\u043d\u0456\u0432?",
+        "dlm": "2023-05-17T11:40:30.645",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 8,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u043f\u0440\u0438\u0439\u043c\u0430\u043b\u0438 \u0412\u0438 \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u044c\u043e\u0433\u043e \u043c\u0456\u0441\u044f\u0446\u044f \u043b\u0456\u043a\u0438? \u042f\u043a\u0456?",
+        "dlm": "2023-05-17T11:41:04.904",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 9,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u043f\u0440\u043e\u0432\u043e\u0434\u0438\u043b\u043e\u0441\u044f \u0412\u0430\u043c \u0449\u0435\u043f\u043b\u0435\u043d\u043d\u044f?",
+        "dlm": "2023-05-17T11:41:55.064",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 10,
+    "fields": {
+        "category": 1,
+        "text": "\u0427\u0438 \u0441\u043f\u043e\u0441\u0442\u0435\u0440\u0456\u0433\u0430\u043b\u0438\u0441\u044c \u0412\u0438 \u0437\u0430\u0440\u0430\u0437 \u0443 \u043b\u0456\u043a\u0430\u0440\u044f?",
+        "dlm": "2023-05-17T11:42:20.847",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 11,
+    "fields": {
+        "category": 2,
         "text": "\u0427\u0438 \u043f\u0440\u043e\u043a\u043e\u043b\u044e\u0432\u0430\u043b\u0438 \u0412\u0430\u043c \u0432\u0443\u0445\u0430?",
-        "dlm": "2023-05-11T12:42:00.905",
+        "dlm": "2023-05-17T11:43:43.647",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 12,
+    "fields": {
+        "category": 2,
+        "text": "\u0427\u0438 \u0440\u043e\u0431\u0438\u043b\u0438 \u0412\u0430\u043c \u0430\u043a\u0443\u043f\u0443\u043d\u043a\u0442\u0443\u0440\u0443?",
+        "dlm": "2023-05-17T11:44:12.132",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 13,
+    "fields": {
+        "category": 2,
+        "text": "\u0427\u0438 \u0440\u043e\u0431\u0438\u043b\u0438 \u0412\u0430\u043c \u0442\u0430\u0442\u0443\u044e\u0432\u0430\u043d\u043d\u044f, \u043f\u0456\u0440\u0441\u0456\u043d\u0433?",
+        "dlm": "2023-05-17T11:44:38.650",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 14,
+    "fields": {
+        "category": 3,
+        "text": "\u0427\u0438 \u043e\u0442\u0440\u0438\u043c\u0443\u0432\u0430\u043b\u0438 \u0412\u0438 \u0442\u0440\u0430\u043d\u0441\u0444\u0443\u0437\u0456\u0457 \u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u0456\u0432 \u043a\u0440\u043e\u0432\u0456 \u0430\u0431\u043e \u043f\u0440\u0435\u043f\u0430\u0440\u0430\u0442\u0456\u0432 \u043f\u043b\u0430\u0437\u043c\u0438?",
+        "dlm": "2023-05-17T11:45:25.699",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 15,
+    "fields": {
+        "category": 4,
+        "text": "\u0427\u0438 \u0440\u043e\u0431\u0438\u043b\u0438 \u0412\u0430\u043c \u0456\u043d'\u0454\u043a\u0446\u0456\u0457 \u043b\u0456\u043a\u0456\u0432?",
+        "dlm": "2023-05-17T11:45:58.155",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 16,
+    "fields": {
+        "category": 5,
+        "text": "\u0412\u0442\u0440\u0430\u0442\u0430 \u0432\u0430\u0433\u0438?",
+        "dlm": "2023-05-17T11:46:45.077",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 17,
+    "fields": {
+        "category": 6,
+        "text": "\u0427\u0438 \u0432\u0430\u0433\u0456\u0442\u043d\u0456 \u0412\u0438 \u0437\u0430\u0440\u0430\u0437 \u0442\u0430 \u0447\u0438 \u0431\u0443\u043b\u0438 \u0432\u0430\u0433\u0456\u0442\u043d\u0456 \u043f\u0440\u043e\u0442\u044f\u0433\u043e\u043c \u043e\u0441\u0442\u0430\u043d\u043d\u0456\u0445 6-\u0442\u0438 \u0442\u0438\u0436\u043d\u0456\u0432? ",
+        "dlm": "2023-05-17T13:53:41.556",
+        "status": 2
+    }
+},
+{
+    "model": "institution.question",
+    "pk": 25,
+    "fields": {
+        "category": 6,
+        "text": " \u0422\u0435\u0440\u043c\u0456\u043d \u043e\u0441\u0442\u0430\u043d\u043d\u044c\u043e\u0457 \u043c\u0435\u043d\u0441\u0442\u0440\u0443\u0430\u0446\u0456\u0457 (\u0434\u0430\u0442\u0430)?",
+        "dlm": "2023-05-19T16:51:37.371",
         "status": 2
     }
 },
@@ -366,365 +1536,293 @@
     "model": "auth.permission",
     "pk": 13,
     "fields": {
-        "name": "Can add user",
+        "name": "Can add content type",
         "content_type": 4,
-        "codename": "add_user"
+        "codename": "add_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 14,
     "fields": {
-        "name": "Can change user",
+        "name": "Can change content type",
         "content_type": 4,
-        "codename": "change_user"
+        "codename": "change_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 15,
     "fields": {
-        "name": "Can delete user",
+        "name": "Can delete content type",
         "content_type": 4,
-        "codename": "delete_user"
+        "codename": "delete_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 16,
     "fields": {
-        "name": "Can view user",
+        "name": "Can view content type",
         "content_type": 4,
-        "codename": "view_user"
+        "codename": "view_contenttype"
     }
 },
 {
     "model": "auth.permission",
     "pk": 17,
     "fields": {
-        "name": "Can add content type",
+        "name": "Can add session",
         "content_type": 5,
-        "codename": "add_contenttype"
+        "codename": "add_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 18,
     "fields": {
-        "name": "Can change content type",
+        "name": "Can change session",
         "content_type": 5,
-        "codename": "change_contenttype"
+        "codename": "change_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 19,
     "fields": {
-        "name": "Can delete content type",
+        "name": "Can delete session",
         "content_type": 5,
-        "codename": "delete_contenttype"
+        "codename": "delete_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 20,
     "fields": {
-        "name": "Can view content type",
+        "name": "Can view session",
         "content_type": 5,
-        "codename": "view_contenttype"
+        "codename": "view_session"
     }
 },
 {
     "model": "auth.permission",
     "pk": 21,
     "fields": {
-        "name": "Can add session",
+        "name": "Can add user",
         "content_type": 6,
-        "codename": "add_session"
+        "codename": "add_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 22,
     "fields": {
-        "name": "Can change session",
+        "name": "Can change user",
         "content_type": 6,
-        "codename": "change_session"
+        "codename": "change_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 23,
     "fields": {
-        "name": "Can delete session",
+        "name": "Can delete user",
         "content_type": 6,
-        "codename": "delete_session"
+        "codename": "delete_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 24,
     "fields": {
-        "name": "Can view session",
+        "name": "Can view user",
         "content_type": 6,
-        "codename": "view_session"
+        "codename": "view_user"
     }
 },
 {
     "model": "auth.permission",
     "pk": 25,
     "fields": {
-        "name": "Can add institution",
+        "name": "Can add status",
         "content_type": 7,
-        "codename": "add_institution"
+        "codename": "add_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 26,
     "fields": {
-        "name": "Can change institution",
+        "name": "Can change status",
         "content_type": 7,
-        "codename": "change_institution"
+        "codename": "change_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 27,
     "fields": {
-        "name": "Can delete institution",
+        "name": "Can delete status",
         "content_type": 7,
-        "codename": "delete_institution"
+        "codename": "delete_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 28,
     "fields": {
-        "name": "Can view institution",
+        "name": "Can view status",
         "content_type": 7,
-        "codename": "view_institution"
+        "codename": "view_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 29,
     "fields": {
-        "name": "Can add status",
+        "name": "Can add answer",
         "content_type": 8,
-        "codename": "add_status"
+        "codename": "add_answer"
     }
 },
 {
     "model": "auth.permission",
     "pk": 30,
     "fields": {
-        "name": "Can change status",
+        "name": "Can change answer",
         "content_type": 8,
-        "codename": "change_status"
+        "codename": "change_answer"
     }
 },
 {
     "model": "auth.permission",
     "pk": 31,
     "fields": {
-        "name": "Can delete status",
+        "name": "Can delete answer",
         "content_type": 8,
-        "codename": "delete_status"
+        "codename": "delete_answer"
     }
 },
 {
     "model": "auth.permission",
     "pk": 32,
     "fields": {
-        "name": "Can view status",
+        "name": "Can view answer",
         "content_type": 8,
-        "codename": "view_status"
+        "codename": "view_answer"
     }
 },
 {
     "model": "auth.permission",
     "pk": 33,
     "fields": {
-        "name": "Can add question",
+        "name": "Can add profile",
         "content_type": 9,
-        "codename": "add_question"
+        "codename": "add_profile"
     }
 },
 {
     "model": "auth.permission",
     "pk": 34,
     "fields": {
-        "name": "Can change question",
+        "name": "Can change profile",
         "content_type": 9,
-        "codename": "change_question"
+        "codename": "change_profile"
     }
 },
 {
     "model": "auth.permission",
     "pk": 35,
     "fields": {
-        "name": "Can delete question",
+        "name": "Can delete profile",
         "content_type": 9,
-        "codename": "delete_question"
+        "codename": "delete_profile"
     }
 },
 {
     "model": "auth.permission",
     "pk": 36,
     "fields": {
-        "name": "Can view question",
+        "name": "Can view profile",
         "content_type": 9,
-        "codename": "view_question"
+        "codename": "view_profile"
     }
 },
 {
     "model": "auth.permission",
     "pk": 37,
     "fields": {
-        "name": "Can add donor test",
+        "name": "Can add health parameter",
         "content_type": 10,
-        "codename": "add_donortest"
+        "codename": "add_healthparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 38,
     "fields": {
-        "name": "Can change donor test",
+        "name": "Can change health parameter",
         "content_type": 10,
-        "codename": "change_donortest"
+        "codename": "change_healthparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 39,
     "fields": {
-        "name": "Can delete donor test",
+        "name": "Can delete health parameter",
         "content_type": 10,
-        "codename": "delete_donortest"
+        "codename": "delete_healthparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 40,
     "fields": {
-        "name": "Can view donor test",
+        "name": "Can view health parameter",
         "content_type": 10,
-        "codename": "view_donortest"
+        "codename": "view_healthparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 41,
     "fields": {
-        "name": "Can add donor profile",
+        "name": "Can add test",
         "content_type": 11,
-        "codename": "add_donorprofile"
+        "codename": "add_test"
     }
 },
 {
     "model": "auth.permission",
     "pk": 42,
     "fields": {
-        "name": "Can change donor profile",
+        "name": "Can change test",
         "content_type": 11,
-        "codename": "change_donorprofile"
+        "codename": "change_test"
     }
 },
 {
     "model": "auth.permission",
     "pk": 43,
     "fields": {
-        "name": "Can delete donor profile",
+        "name": "Can delete test",
         "content_type": 11,
-        "codename": "delete_donorprofile"
+        "codename": "delete_test"
     }
 },
 {
     "model": "auth.permission",
     "pk": 44,
     "fields": {
-        "name": "Can view donor profile",
+        "name": "Can view test",
         "content_type": 11,
-        "codename": "view_donorprofile"
+        "codename": "view_test"
     }
 },
 {
     "model": "auth.permission",
     "pk": 45,
-    "fields": {
-        "name": "Can add donor history",
-        "content_type": 12,
-        "codename": "add_donorhistory"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 46,
-    "fields": {
-        "name": "Can change donor history",
-        "content_type": 12,
-        "codename": "change_donorhistory"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 47,
-    "fields": {
-        "name": "Can delete donor history",
-        "content_type": 12,
-        "codename": "delete_donorhistory"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 48,
-    "fields": {
-        "name": "Can view donor history",
-        "content_type": 12,
-        "codename": "view_donorhistory"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 49,
-    "fields": {
-        "name": "Can add answer",
-        "content_type": 13,
-        "codename": "add_answer"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 50,
-    "fields": {
-        "name": "Can change answer",
-        "content_type": 13,
-        "codename": "change_answer"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 51,
-    "fields": {
-        "name": "Can delete answer",
-        "content_type": 13,
-        "codename": "delete_answer"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 52,
-    "fields": {
-        "name": "Can view answer",
-        "content_type": 13,
-        "codename": "view_answer"
-    }
-},
-{
-    "model": "auth.permission",
-    "pk": 53,
     "fields": {
         "name": "Can add history",
         "content_type": 12,
@@ -733,7 +1831,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 54,
+    "pk": 46,
     "fields": {
         "name": "Can change history",
         "content_type": 12,
@@ -742,7 +1840,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 55,
+    "pk": 47,
     "fields": {
         "name": "Can delete history",
         "content_type": 12,
@@ -751,7 +1849,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 56,
+    "pk": 48,
     "fields": {
         "name": "Can view history",
         "content_type": 12,
@@ -760,139 +1858,271 @@
 },
 {
     "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add question category",
+        "content_type": 13,
+        "codename": "add_questioncategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change question category",
+        "content_type": 13,
+        "codename": "change_questioncategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete question category",
+        "content_type": 13,
+        "codename": "delete_questioncategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view question category",
+        "content_type": 13,
+        "codename": "view_questioncategory"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add question",
+        "content_type": 14,
+        "codename": "add_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change question",
+        "content_type": 14,
+        "codename": "change_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete question",
+        "content_type": 14,
+        "codename": "delete_question"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view question",
+        "content_type": 14,
+        "codename": "view_question"
+    }
+},
+{
+    "model": "auth.permission",
     "pk": 57,
     "fields": {
-        "name": "Can add test",
-        "content_type": 10,
-        "codename": "add_test"
+        "name": "Can add status",
+        "content_type": 15,
+        "codename": "add_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 58,
     "fields": {
-        "name": "Can change test",
-        "content_type": 10,
-        "codename": "change_test"
+        "name": "Can change status",
+        "content_type": 15,
+        "codename": "change_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 59,
     "fields": {
-        "name": "Can delete test",
-        "content_type": 10,
-        "codename": "delete_test"
+        "name": "Can delete status",
+        "content_type": 15,
+        "codename": "delete_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 60,
     "fields": {
-        "name": "Can view test",
-        "content_type": 10,
-        "codename": "view_test"
+        "name": "Can view status",
+        "content_type": 15,
+        "codename": "view_status"
     }
 },
 {
     "model": "auth.permission",
     "pk": 61,
     "fields": {
-        "name": "Can add profile",
-        "content_type": 11,
-        "codename": "add_profile"
+        "name": "Can add institution",
+        "content_type": 16,
+        "codename": "add_institution"
     }
 },
 {
     "model": "auth.permission",
     "pk": 62,
     "fields": {
-        "name": "Can change profile",
-        "content_type": 11,
-        "codename": "change_profile"
+        "name": "Can change institution",
+        "content_type": 16,
+        "codename": "change_institution"
     }
 },
 {
     "model": "auth.permission",
     "pk": 63,
     "fields": {
-        "name": "Can delete profile",
-        "content_type": 11,
-        "codename": "delete_profile"
+        "name": "Can delete institution",
+        "content_type": 16,
+        "codename": "delete_institution"
     }
 },
 {
     "model": "auth.permission",
     "pk": 64,
     "fields": {
-        "name": "Can view profile",
-        "content_type": 11,
-        "codename": "view_profile"
+        "name": "Can view institution",
+        "content_type": 16,
+        "codename": "view_institution"
     }
 },
 {
     "model": "auth.permission",
     "pk": 65,
     "fields": {
-        "name": "Can add question category",
-        "content_type": 14,
-        "codename": "add_questioncategory"
+        "name": "Can add blood parameter",
+        "content_type": 17,
+        "codename": "add_bloodparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 66,
     "fields": {
-        "name": "Can change question category",
-        "content_type": 14,
-        "codename": "change_questioncategory"
+        "name": "Can change blood parameter",
+        "content_type": 17,
+        "codename": "change_bloodparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 67,
     "fields": {
-        "name": "Can delete question category",
-        "content_type": 14,
-        "codename": "delete_questioncategory"
+        "name": "Can delete blood parameter",
+        "content_type": 17,
+        "codename": "delete_bloodparameter"
     }
 },
 {
     "model": "auth.permission",
     "pk": 68,
     "fields": {
-        "name": "Can view question category",
-        "content_type": 14,
-        "codename": "view_questioncategory"
+        "name": "Can view blood parameter",
+        "content_type": 17,
+        "codename": "view_bloodparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add current health parameter",
+        "content_type": 18,
+        "codename": "add_currenthealthparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change current health parameter",
+        "content_type": 18,
+        "codename": "change_currenthealthparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete current health parameter",
+        "content_type": 18,
+        "codename": "delete_currenthealthparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view current health parameter",
+        "content_type": 18,
+        "codename": "view_currenthealthparameter"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add test detail",
+        "content_type": 19,
+        "codename": "add_testdetail"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change test detail",
+        "content_type": 19,
+        "codename": "change_testdetail"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete test detail",
+        "content_type": 19,
+        "codename": "delete_testdetail"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view test detail",
+        "content_type": 19,
+        "codename": "view_testdetail"
     }
 },
 {
     "model": "auth.group",
     "pk": 1,
     "fields": {
-        "name": "institution_worker",
+        "name": "donor",
         "permissions": [
-            16,
-            52,
-            56,
-            28,
-            42,
-            62,
-            44,
-            64,
+            29,
+            30,
+            32,
+            40,
             33,
             34,
-            35,
             36,
-            32,
-            37,
-            57,
-            38,
-            58,
-            39,
-            59,
-            40,
-            60
+            21,
+            24
         ]
     }
 },
@@ -900,54 +2130,235 @@
     "model": "auth.group",
     "pk": 2,
     "fields": {
-        "name": "donor",
+        "name": "specialist",
         "permissions": [
-            13,
-            14,
-            15,
-            16,
+            65,
+            66,
+            68,
+            69,
+            70,
+            71,
+            72,
+            37,
+            38,
+            39,
+            40,
+            45,
+            46,
+            47,
+            48,
+            36,
+            28,
+            44,
+            76,
+            64,
+            53,
+            54,
+            55,
+            56,
             49,
             50,
             51,
             52,
-            48,
-            41,
-            42,
-            43,
-            44,
-            36,
-            32,
-            40
+            17,
+            18,
+            19,
+            20,
+            24
         ]
     }
 },
 {
-    "model": "auth.user",
+    "model": "user.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$150000$RrnmtjvKPepf$ActcgWk+1TyKd4bhhD9uR5Q5P9hqyhBGH0Jdw9kYBh8=",
-        "last_login": "2023-05-11T13:00:49.919",
+        "password": "pbkdf2_sha256$150000$q7H9rwhmJ1Yk$KK2yy2e6EWMGLVyaloczF7pOF91LO6NqjRywIrWTc8s=",
+        "last_login": "2023-05-19T17:46:01.142",
         "is_superuser": true,
-        "username": "admin",
         "first_name": "",
         "last_name": "",
-        "email": "volodymyr.di@gmail.com",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2023-05-10T09:39:40.812",
+        "date_joined": "2023-05-14T21:50:44.629",
+        "email": "volodymyr.id@proton.me",
+        "username": "admin",
         "groups": [],
         "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 55,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$nDiXfnuKtxne$tw5YTapR0guMq8lbR42odALSNefoSyaRlzuSysSPdEM=",
+        "last_login": "2023-05-17T10:15:48.677",
+        "is_superuser": false,
+        "first_name": "\u0421\u0442\u0435\u043f\u0430\u043d \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447",
+        "last_name": "\u041a\u043e\u043b\u043e\u0434\u0430",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-16T09:19:01",
+        "email": "asd@qwe.rt",
+        "username": "\u0421\u0442\u0435\u043f\u0430\u043d \u041f\u0435\u0442\u0440\u043e\u0432\u0438\u0447 \u041a\u043e\u043b\u043e\u0434\u0430",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 59,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$hMrj0yxjiYeZ$rQDOCbA0TcAa8k/WkUuoIok4XE25CJ28T8TDpxhJRXA=",
+        "last_login": "2023-05-18T10:11:30.590",
+        "is_superuser": false,
+        "first_name": "\u0406\u0432\u0430\u043d \u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432\u0438\u0447",
+        "last_name": "\u041a\u043e\u043d\u043e\u043f\u043a\u043e",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-18T10:11:21.304",
+        "email": "mymail@gmail.com",
+        "username": "\u0406\u0432\u0430\u043d \u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432\u0438\u0447 \u041a\u043e\u043d\u043e\u043f\u043a\u043e",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 60,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$oZi6E461A1mS$Ee83AyRCXtzITE1nm4IFaoQ++iLjhcAzJt8Dx9OtgXs=",
+        "last_login": "2023-05-19T17:28:51.118",
+        "is_superuser": false,
+        "first_name": "\u0412\u0430\u0441\u0438\u043b\u044c \u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447",
+        "last_name": "\u0417\u0430\u0434\u043e\u0432\u0431\u0430\u0439\u043b\u043e",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-18T19:02:25.709",
+        "email": "qweqwe@qwe.qwe",
+        "username": "\u0412\u0430\u0441\u0438\u043b\u044c \u0406\u0432\u0430\u043d\u043e\u0432\u0438\u0447 \u0417\u0430\u0434\u043e\u0432\u0431\u0430\u0439\u043b\u043e",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 61,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$fbPegcV63WQ4$ajFKvLvOGk5C2WTfq22WXg50NuapSGwBP2sV7S2FHLU=",
+        "last_login": "2023-05-19T19:38:49.612",
+        "is_superuser": false,
+        "first_name": "\u041c\u0430\u0440\u0456\u044f \u0413\u0440\u0438\u0433\u043e\u0440\u0456\u0432\u043d\u0430",
+        "last_name": "\u0411\u0440\u0438\u0447\u043a\u0430",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-19T17:37:46.049",
+        "email": "w@w.w",
+        "username": "\u041c\u0430\u0440\u0456\u044f \u0413\u0440\u0438\u0433\u043e\u0440\u0456\u0432\u043d\u0430 \u0411\u0440\u0438\u0447\u043a\u0430",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 62,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$W7kgpSomIuvQ$mGS8ycre67PPruSg2w/zyds1aXdGUNME7TozfAKQsYs=",
+        "last_login": "2023-05-19T19:38:38.678",
+        "is_superuser": false,
+        "first_name": "\u0413\u0430\u043b\u0438\u043d\u0430 \u041f\u0435\u0442\u0440\u0456\u0432\u043d\u0430",
+        "last_name": "\u0411\u0456\u043b\u043e\u043d\u043e\u0436\u043a\u043e",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-05-19T17:47:03",
+        "email": "spec@gmail.com",
+        "username": "specialist",
+        "groups": [
+            2
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "donor.profile",
+    "pk": 30,
+    "fields": {
+        "user": 55,
+        "phone": "0987654321",
+        "gender": "\u0427\u043e\u043b\u043e\u0432\u0456\u0447\u0430",
+        "birth_date": "2023-05-09",
+        "home_addr": "fwefwef",
+        "work_addr": "wewefwef",
+        "dlm": "2023-05-16T09:19:01.976",
+        "institution": 1,
+        "status": 3,
+        "signup_confirmation": false
+    }
+},
+{
+    "model": "donor.profile",
+    "pk": 32,
+    "fields": {
+        "user": 59,
+        "phone": "09786543214",
+        "gender": "\u0427\u043e\u043b\u043e\u0432\u0456\u0447\u0430",
+        "birth_date": "1998-12-17",
+        "home_addr": "\u043c. \u0421\u043e\u043a\u0430\u043b\u044c, \u0432\u0443\u043b. \u0428\u0435\u0432\u0447\u0435\u043d\u043a\u0430, 29",
+        "work_addr": "",
+        "dlm": "2023-05-18T10:11:21.792",
+        "institution": 1,
+        "status": 2,
+        "signup_confirmation": false
+    }
+},
+{
+    "model": "donor.profile",
+    "pk": 33,
+    "fields": {
+        "user": 60,
+        "phone": "0964567889",
+        "gender": "\u0427\u043e\u043b\u043e\u0432\u0456\u0447\u0430",
+        "birth_date": "1986-05-20",
+        "home_addr": "\u043c. \u0421\u043e\u043a\u0430\u043b\u044c, \u0432\u0443\u043b. \u0413\u0435\u0440\u043e\u0457\u0432 \u0423\u043f\u0430, 158, \u043a\u043223",
+        "work_addr": "\u043d\u0435\u043c\u0430\u0454",
+        "dlm": "2023-05-18T19:02:26.120",
+        "institution": 1,
+        "status": 9,
+        "signup_confirmation": false
+    }
+},
+{
+    "model": "donor.profile",
+    "pk": 34,
+    "fields": {
+        "user": 61,
+        "phone": "0974561233",
+        "gender": "\u0416\u0456\u043d\u043e\u0447\u0430",
+        "birth_date": "1992-07-17",
+        "home_addr": "\u043c. \u0421\u043e\u043a\u0430\u043b\u044c, \u0432\u0443\u043b. \u0417\u0435\u043b\u0435\u043d\u0430, 46, \u043a\u0432.50",
+        "work_addr": "\u041d\u0435\u043f\u0440\u0430\u0446\u044e\u044e",
+        "dlm": "2023-05-19T17:37:46.537",
+        "institution": 1,
+        "status": 1,
+        "signup_confirmation": false
     }
 },
 {
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
-        "action_time": "2023-05-10T11:31:32.466",
+        "action_time": "2023-05-15T11:02:13.200",
         "user": 1,
         "content_type": 3,
         "object_id": "1",
-        "object_repr": "institution_worker",
+        "object_repr": "donor",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -956,11 +2367,11 @@
     "model": "admin.logentry",
     "pk": 2,
     "fields": {
-        "action_time": "2023-05-10T11:33:11.254",
+        "action_time": "2023-05-15T11:11:41.423",
         "user": 1,
-        "content_type": 3,
+        "content_type": 6,
         "object_id": "2",
-        "object_repr": "donor",
+        "object_repr": "",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -969,13 +2380,78 @@
     "model": "admin.logentry",
     "pk": 3,
     "fields": {
-        "action_time": "2023-05-10T11:33:32.362",
+        "action_time": "2023-05-15T11:12:02.697",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "2",
+        "object_repr": "user@corp.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"email\", \"groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2023-05-18T10:05:10.861",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "55",
+        "object_repr": "asd@qwe.rt",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2023-05-19T17:47:03.678",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "62",
+        "object_repr": "",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2023-05-19T17:51:26.896",
         "user": 1,
         "content_type": 3,
-        "object_id": "1",
-        "object_repr": "institution_worker",
+        "object_id": "2",
+        "object_repr": "specialist",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2023-05-19T17:51:35.392",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "62",
+        "object_repr": "institutution@gmail.com",
         "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"permissions\"]}}]"
+        "change_message": "[{\"changed\": {\"fields\": [\"email\", \"first_name\", \"last_name\", \"groups\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2023-05-19T17:52:24.735",
+        "user": 1,
+        "content_type": 6,
+        "object_id": "62",
+        "object_repr": "spec@gmail.com",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"email\"]}}]"
     }
 }
 ]
